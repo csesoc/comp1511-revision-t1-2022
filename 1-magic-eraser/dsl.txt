@@ -1,0 +1,2 @@
+integer(X)
+integer(Y)
