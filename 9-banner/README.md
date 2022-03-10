@@ -14,12 +14,14 @@ if the undecided letters are picked optimally.
 
 ## Input Format
 
-The first line of input will contain the integer $N$, the number of letters in the banner.
+The first line of input contains the integer $N$, the number of letters in the banner.
 
-The second line of input will contain one string of length $N$, the banner so far.
+The second line of input contains one string of length $N$, the banner so far.
 Each character will be `I`, `M`, `C`, or `_`, where `_` denotes an undecided letter.
 
 ## Constraints
+
+For all test cases:
 
 - $1 \le N \le 100000$.
 

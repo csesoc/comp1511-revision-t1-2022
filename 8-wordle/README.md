@@ -31,19 +31,21 @@ The next $N$ lines contain the allowed words.
 Each line contains one 5-letter uppercase word with no repeated letters. 
 All $N$ words are different.
 
-The next line of input contains $K$, the number of guesses you made.
+The next line contains $K$, the number of guesses you made.
 Each guess is described by two lines. 
 The first line contains the word you guessed, which is one of the allowed words.
 The second line contains the response to this guess, which is a 5-letter string consisting of `G`, `Y` and `.`.
 
 ## Constraints
 
+For all test cases:
+
 - $1 \le N \le 1000$.
 - $1 \le K \le 5$
 
 ## Output Format
 
-Output the possible answers, one per line, in the order they appear in the input.
+Output the possible answers, one per line, in the same order as they appear in the input.
 
 You are guaranteed that there is at least one possible answer.
 

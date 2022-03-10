@@ -8,9 +8,11 @@ Given two 2D vectors $(x_1,y_1)$ and $(x_2, y_2)$, their doss product is defined
 
 ## Input Format
 
-The first and only line of input will contain the four integers $x_1$, $y_1$, $x_2$ and $y_2$.
+The first and only line of input contains the four integers $x_1$, $y_1$, $x_2$ and $y_2$.
 
 ## Constraints
+
+For all test cases:
 
 - $-10000 \leq x_1,y_1,x_2,y_2 \leq 10000$.
 

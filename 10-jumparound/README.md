@@ -20,7 +20,7 @@ Subject to these constraints, what is the smallest possible number of days that 
 
 ## Input Format
 
-The first line of input will contain the integer $N$, the number of sites in TreeTown.
+The first line of input contains the integer $N$, the number of sites in TreeTown.
 
 The second line contains $N$ integers, the $i$th of which is $x[i]$.
 

@@ -30,7 +30,7 @@ There is **one public testcase** for this task, which can be found somewhere TOD
 
 The first line of input contains three integers: $R$, $C$ and $N$.
 
-Following this are $R$ lines, each containing a string of $C$ digits.
+The next $R$ lines each contain a string of $C$ digits.
 The $j$th digit in the $i$th line represents the goodness of the pixel in
 the $i$th row of the $j$th column of the canvas.
 
