@@ -10,11 +10,13 @@ The letter `Y` is considered a consonant in this question.
 
 ## Input Format
 
-The first line of input will contain the integer $N$, the number of letters in the string.
+The first line of input contains the integer $N$, the number of letters in the string.
 
-The second line of input will contain the string as a sequence of $N$ uppercase letters of length $N$.
+The second line will contain the string as a sequence of $N$ uppercase letters of length $N$.
 
 ## Constraints
+
+For all test cases:
 
 - $1 \le N \le 100000$.
 
