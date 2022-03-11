@@ -4,9 +4,9 @@ Robot Vacuum II
 
 ## Problem Statement
 
-Marvin is a robot on the 2D coordinate grid. He accepts a sequence of instructions: `U`, `D`, `L` or `R`, which represent moving 1 unit up, down, left and right respectively. See `diagram.jpg`, where Marvin is represented by the black square. Furthermore, he has to start at the origin, and return to the origin after completing the sequence of instructions. Being a paranoid android, he has the option to ignore any instructions and execute the new sequence of instructions in order. What is the furthest Manhattan distance from the start position at any point during execution?
+Marvin is a robot on the 2D coordinate grid. He accepts a sequence of instructions: `U`, `D`, `L` or `R`, which represent moving 1 unit up, down, left and right respectively. See `diagram.jpg`, where Marvin is represented by the black square. Furthermore, he has to start at the origin, and return to the origin after completing the sequence of instructions. Being a paranoid android, he has the option to delete any of his instructions before he begins. By strategically choosing which instructions to delete, what is the furthest distance Marvin can reach from his start position during execution, while ensuring he returns to his start position at the end?
 
-(The Manhattan distance is the sum of horizontal and vertical distances.)
+By distance we are referring to Manhattan distance, which is the sum of the horizontal and vertical distances. 
 
 ## Input Format
 
