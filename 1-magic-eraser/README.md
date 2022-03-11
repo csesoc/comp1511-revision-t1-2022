@@ -18,7 +18,7 @@ The second line contains the integer $Y$, the side length of your smaller cubes 
 
 ## Constraints
 
-- $2 \leq X \leq 500$.
+- $2 \leq X \leq 50$.
 - $1 \leq Y < X$.
 - $X$ is a multiple of $Y$.
 

@@ -1,7 +1,7 @@
 X = int(input())
 Y = int(input())
 
-assert 2 <= X <= 500
+assert 2 <= X <= 50
 assert 1 <= Y < X
 assert X % Y == 0
 
