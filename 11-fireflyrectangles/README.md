@@ -21,7 +21,7 @@ The third line of input will contain $N$ integers, the $i$th of which is $y[i]$.
 
 ## Output Format
 
-Output a single integer, the number of rectangles that can be formed from 4 distinct fireflies in the photo.
+Output a single integer, the number of rectangles which can be formed from four distinct fireflies in the photo.
 
 ## Constraints
 
@@ -32,8 +32,13 @@ For all test cases:
 
 Additionally:
 
-- For test cases worth 30%, $N \le 50$.
+- For test cases worth 25%, $N \le 50$.
 
 ## Sample Input 0
 
+input00.txt
+
 ## Explanation 0
+
+The locations of the 6 fireflies are shown in the diagram.
+There are 2 rectangles whose vertices all lie on fireflies.
