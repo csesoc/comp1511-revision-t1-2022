@@ -14,16 +14,16 @@ rPrefix = genPrefix(S, "R")
 uPrefix = genPrefix(S, "U")
 dPrefix = genPrefix(S, "D")
 
-xDist = 0
-yDist = 0
+dist = 0
 for i in range(len(S)):
-    xDist = max(xDist, min(
-        rangeSum(lPrefix, 0, i) + rangeSum(rPrefix, i + 1, len(S) - 1),
-        rangeSum(rPrefix, 0, i) + rangeSum(lPrefix, i + 1, len(S) - 1)
-    ))
-    yDist = max(yDist, min(
-        rangeSum(uPrefix, 0, i) + rangeSum(dPrefix, i + 1, len(S) - 1),
-        rangeSum(dPrefix, 0, i) + rangeSum(uPrefix, i + 1, len(S) - 1)
-    ))
+    xDist = max(
+        min(rangeSum(lPrefix, 0, i), rangeSum(rPrefix, i + 1, len(S) - 1)),
+        min(rangeSum(rPrefix, 0, i), rangeSum(lPrefix, i + 1, len(S) - 1))
+    )
+    yDist = max(
+        min(rangeSum(uPrefix, 0, i), rangeSum(dPrefix, i + 1, len(S) - 1)),
+        min(rangeSum(dPrefix, 0, i), rangeSum(uPrefix, i + 1, len(S) - 1))
+    )
+    dist = max(dist, xDist + yDist)
 
-print(xDist + yDist)
+print(dist)

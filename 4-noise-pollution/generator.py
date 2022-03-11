@@ -16,7 +16,7 @@ MAKE_OUTPUT_COMMAND = "python solution.py < {0} > {1}"
 DIR_PATH = "tests"
 
 # Put functions here
-def sample1():
+def sample0():
     return [
         "pat    1000 2 nrl boxing",
         "angus  20   2 soccer nrl",
@@ -47,7 +47,7 @@ def big(N, numSports, maxSports):
 # Put cases here, CASES should be a list of dicts
 # but its a list of lists here so cop it
 CASES = [
-    sample1(),
+    sample0(),
     big(100, 100, 10),
     big(1000, 100, 100),
     big(2, 50000, 50000),

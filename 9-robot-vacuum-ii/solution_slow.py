@@ -1,16 +1,16 @@
 N = int(input())
 S = input()
 
-xDist = 0
-yDist = 0
+dist = 0
 for i in range(len(S)):
-    xDist = max(xDist, min(
-        S[:i].count("L") + S[i:].count("R"),
-        S[:i].count("R") + S[i:].count("L")
-    ))
-    yDist = max(yDist, min(
-        S[:i].count("U") + S[i:].count("D"),
-        S[:i].count("D") + S[i:].count("U")
-    ))
+    xDist = max(
+        min(S[:i].count("L"), S[i:].count("R")),
+        min(S[:i].count("R"), S[i:].count("L"))
+    )
+    yDist = max(
+        min(S[:i].count("U"), S[i:].count("D")),
+        min(S[:i].count("D"), S[i:].count("U"))
+    )
+    dist = max(dist, xDist + yDist)
 
-print(xDist + yDist)
+print(dist)

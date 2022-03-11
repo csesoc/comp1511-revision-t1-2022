@@ -4,9 +4,9 @@ Robot Vacuum II
 
 ## Problem Statement
 
-You are given a sequence of instructions U, D, L or R.
-You are to remove a set of instructions and execute the new sequence of instructions in order.
-What is the furthest you can be from the origin by manhattan distance during your journey, but still get back to where you started by the end? The manhattan distance is `x distance + y distance`
+Marvin is a robot, who accepts a sequence of instructions: `U`, `D`, `L` or `R`, which represent up, down, left and right respectively. Being a paranoid android, it has the option to remove any instructions and execute the new sequence of instructions in order. If it starts and ends at the same position, what is the furthest distance that it can reach?
+
+For simplicity, distance is defined as the manhattan distance, which is the sum of x and y distances. In other words, $manhattan distance = |x| + |y|$
 
 
 ## Input Format
@@ -20,14 +20,11 @@ The following line will contain $N$ characters, which are either U, D, L or R.
 For all test cases:
 
 - $1 \le N \le 100000$.
-- The total occupancy over all matches $\le 100000$.
-- All loudness values are unique non negative integers.
-- No name is repeated.
-- All strings are at most 10 characters, and only contain lowercase letters.
+- For 50% of the marks, $1 \le N \le 1000$.
 
 ## Output Format
 
-Output a single integer - the furthest distance manhattan distance from the origin after removing some instructions.
+Output a single integer - the maximum manhattan distance from the origin after removing some instructions.
 
 ## Sample Input 0
 
@@ -35,4 +32,6 @@ input00.txt
 
 ## Explanation 0
 
-Removing wi
+After removing some instructions, it may arrive at this new sequence of instructions: `U  URD DL`.
+
+Marvin reaches a distance of 2 + 1, and returns to the origin. It can be shown that this is the maximum possible manhattan distance.

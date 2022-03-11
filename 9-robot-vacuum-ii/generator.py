@@ -8,7 +8,7 @@ random.seed(563426471)
 # Use this to output your testcases
 def output_case(c, filepath):
     with open(filepath, "w") as f:
-        f.write(str(len(c)) + "\n" + "\n".join(map(str, c)) + "\n")
+        f.write(str(len(c)) + "\n" + "".join(map(str, c)) + "\n")
 
 # Make output command
 MAKE_OUTPUT_COMMAND = "python solution.py < {0} > {1}"
@@ -19,17 +19,19 @@ DIR_PATH = "tests"
 def sample0():
     return "URDURDUDL"
 
-def gen(N):
-    return "".join(random.choice("UDLR") for i in range(N))
+def gen(N, choices = "UDLR"):
+    return "".join(random.choice(choices) for i in range(N))
         
 # Put cases here, CASES should be a list of dicts
 # but its a list of lists here so cop it
 CASES = [
-    sample1(),
+    sample0(),
     gen(10),
     gen(100),
     gen(1000),
     gen(100000),
+    gen(100000, "UUUUUUDDDDDDLR"),
+    gen(100000, "UUUUUUUUUUUDLR"),
 ]
 
 # Generation code. Anything past here should not need to be touched.
