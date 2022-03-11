@@ -20,7 +20,7 @@ The second line contains the integer $Y$, the side length of your smaller cubes 
 
 - $2 \leq X \leq 500$.
 - $1 \leq Y < X$.
-- $X$ is a multiple of $Y.
+- $X$ is a multiple of $Y$.
 
 ## Output Format
 
