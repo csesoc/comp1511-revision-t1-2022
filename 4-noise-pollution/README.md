@@ -1,6 +1,6 @@
 ## Challenge Name
 
-IMC Banner II
+Noise Pollution
 
 ## Problem Statement
 
