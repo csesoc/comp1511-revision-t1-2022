@@ -1,3 +1,4 @@
+# Ryan
 N = int(input())
 S = input()
 

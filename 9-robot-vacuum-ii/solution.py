@@ -1,3 +1,4 @@
+# Ryan
 def genPrefix(arr, target):
     prefixSum = [0]
     for val in arr:
