@@ -4,7 +4,7 @@ RPS Round Robin
 
 ## Problem Statement
 
-Jack loves playing RPS. Today, he is facing off against the world champion RPS robot, the Robust Programmed System. What he doesn't know is that the robot just plays Rock, then Paper, then Scissors over and over again.
+Jack loves playing Rock Paper Scissors (RPS). Today, he is facing off against the world champion RPS robot, the Robust Programmed System. What he doesn't know is that the robot just plays Rock, then Paper, then Scissors over and over again.
 
 They will face off in $N$ rounds of RPS. In the $i$th round (starting from 1), the winner of the round gets $i$ bitcoins. Given Jack's sequence of moves, determine his total winnings.
 
@@ -12,9 +12,7 @@ They will face off in $N$ rounds of RPS. In the $i$th round (starting from 1), t
 
 The first line of input will contain a single integer, $N$.
 
-The second line of input will contain $N$ characters
-
-*Warning:* Don't forget about the \n character at the end of the first line of input
+The second line of input will contain $N$ characters which describe Jack's moves.
 
 ## Constraints
 
