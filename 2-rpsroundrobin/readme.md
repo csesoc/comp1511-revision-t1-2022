@@ -12,9 +12,15 @@ They will face off in $N$ rounds of RPS. In the $i$th round (starting from 1), t
 
 The first line of input will contain a single integer, $N$.
 
-The second line of input will contain $N characters
+The second line of input will contain $N$ characters
 
 *Warning:* Don't forget about the \n character at the end of the first line of input
+
+## Constraints
+
+For all test cases:
+
+- $1 \le N \le 100$
 
 ## Output Format
 
@@ -22,16 +28,7 @@ Output a single integer, Jack's total winnings
 
 ## Sample Input 0
 
-```
-7
-PSRRRRP
-```
-
-## Sample Output 0
-
-```
-19
-```
+input00.txt
 
 ## Explanation 0
 
