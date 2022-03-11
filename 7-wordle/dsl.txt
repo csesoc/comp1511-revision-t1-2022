@@ -1,0 +1,16 @@
+integer(N)
+loop(N)
+	# Allowed word
+	string(word)
+endloop
+
+integer(K)
+
+loop(N)
+	# Guess
+	string(guess)
+	# Response to the guess
+	string(response)
+endloop
+
+#StartCode
