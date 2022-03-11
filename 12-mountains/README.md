@@ -26,22 +26,22 @@ What is the minimum effort required to do this?
 
 The first line of input will contain the integer $N$, the number of mountains.
 
-The second line of input will contain $N$ integers, the $i$-th of which is $H[i]$, the height of the $i$-th mountain.
+The second line will contain $N$ integers, the $i$-th of which is $H[i]$, the height of the $i$-th mountain.
 
-The third line of input will contain $N$ integers, the $i$-th of which is $R[i]$, the reward you get for climbing the $i$-th mountain.
+The third line will contain $N$ integers, the $i$-th of which is $R[i]$, the reward you get for climbing the $i$-th mountain.
 
 ## Constraints
 
 For all test cases:
 
-- $1 \le N \le 100000$.
-- $1 \le H[i] \le 1000000$ for all $i$.
-- R[i] is 1, 0 or -1 for all $i$.
-- R[i] = 1 for at least one $i$.
+- $1 \le N \le 100\,000$.
+- $1 \le H[i] \le 1\,000\,000$ for all $i$.
+- $R[i]$ is $1, 0 or -1$ for all $i$.
+- $R[i] = 1$ for at least one $i$.
 
 Note that $H[i]^2$ can overflow a 32-bit integer (e.g. an `int` in C).
 We recommend using 64-bit integers (e.g. a `long long` in C).
-If you are using python, then this is not an issue.
+If you are using Python, then this is not an issue.
 
 Additionally:
 
