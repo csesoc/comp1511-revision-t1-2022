@@ -11,7 +11,7 @@ def output_case(c, filepath):
         f.write(str(len(c)) + "\n" + "\n".join(map(str, c)) + "\n")
 
 # Make output command
-MAKE_OUTPUT_COMMAND = "python solution.py < {0} > {1}"
+MAKE_OUTPUT_COMMAND = "python3 solution.py < {0} > {1}"
 # Dir that stores all the test cases
 DIR_PATH = "tests"
 
@@ -42,16 +42,17 @@ def big(N, numSports, maxSports):
     for loudness, name in enumerate(names):
         currSports = random.sample(sports, random.randrange(0, maxSports))
         output.append(" ".join([name, str(loudness), str(len(currSports)), *currSports]))
+    random.shuffle(output)
     return output
         
 # Put cases here, CASES should be a list of dicts
 # but its a list of lists here so cop it
 CASES = [
     sample0(),
-    big(100, 100, 10),
-    big(1000, 100, 100),
-    big(2, 50000, 50000),
-    big(50000, 2, 2)
+    big(50, 10, 10),
+    big(50, 50, 10),
+    big(100, 100, 20),
+    big(100, 100, 50)
 ]
 
 # Generation code. Anything past here should not need to be touched.
