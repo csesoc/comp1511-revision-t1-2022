@@ -1,5 +1,6 @@
 #include <cstdio>
 #include <vector>
+#include <cassert>
 using namespace std;
 #define MAXN 100010
 int n, x[MAXN], ans, seen[MAXN], a[MAXN], b[MAXN];
