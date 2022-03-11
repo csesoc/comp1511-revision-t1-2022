@@ -12,14 +12,16 @@ Determine for Alex if the cakes can slide freely up and down without collision. 
 
 The first line of input contains two integers, $N$ and $M$.
 
-The next $N$ lines of input will represent the corners of the first cake, in order. The $i$th line will contain $x_i$ and $y_i$, the coordinates $ith$ corner.
+The next $N$ lines of input will represent the corners of the first cake, in order. The $i$-th line will contain $x[i]$ and $y[i]$, the coordinates of the $i$-th corner.
 
-The next $M$ lines of input will represent the corners of the second cake, in order. The $j$th line will contain $x_j$ and $y_j$, the coordinates $jth$ corner.
+The next $M$ lines of input will represent the corners of the second cake, in order. The $j$-th line will contain $x[j]$ and $y[j]$, the coordinates of the $j$-th corner.
 
 ## Constraints
 
-$1 \leq N, M \leq 1,000$
-$-1,000,000,000 \leq x_i, y_i, x_j, y_j \leq 1,000,000,000$
+For all cases:
+
+- $1 \leq N, M \leq 1,000$.
+- $-1,000,000,000 \leq x[i], y[i], x[j], y[j] \leq 1,000,000,000$ for all $i$ and $j$.
 
 ## Output Format
 
@@ -42,4 +44,4 @@ Since the two cakes can slide freely up and down, the correct output is `No Coll
 ## Explanation 1
 
 It is possible for the first cake to slide up and the second to slide down, however it is not possible for the first cake to slide down and the second to slide up. 
-There the correct output is `Collision!`
+Therefore the correct output is `Collision!`
