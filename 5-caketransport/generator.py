@@ -93,12 +93,12 @@ def gen(N, M, MAX_RANGE = 1_000_000_000, SPLIT = None):
 # Put cases here, CASES should be a list of dicts
 # but its a list of lists here so cop it
 CASES = [
-    gen(10, 10, 1000),
-    gen(10, 10, 1000, SPLIT=69),
-    gen(100, 100, 1000),
-    gen(100, 100, 1000, SPLIT=-210),
-    gen(1000, 1000, 1000),
-    gen(1000, 1000, 1000, SPLIT=531),
+    gen(10, 10, 1_000),
+    gen(10, 10, 1_000, SPLIT=69),
+    gen(100, 100, 1_000_000),
+    gen(100, 100, 1_000_000, SPLIT=-210),
+    gen(1000, 1000, 1_000_000_000),
+    gen(1000, 1000, 1_000_000_000, SPLIT=531),
 ]
 
 # Generation code. Anything past here should not need to be touched.
