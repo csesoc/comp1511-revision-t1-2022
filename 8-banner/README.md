@@ -1,6 +1,6 @@
 ## Challenge Name
 
-IMC Banner II
+IMC Banner III
 
 ## Problem Statement
 
