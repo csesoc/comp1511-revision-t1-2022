@@ -5,7 +5,7 @@ Mountains
 ## Problem Statement
 
 There is a mountain range which consists of $N$ mountains in a line, numbered 0 to $N-1$ from left to right. 
-The $i$-th mountain has a height of $H[i]$.
+The $i$th mountain has a height of $H[i]$.
 
 For each mountain, there is a reward $R[i]$ (in dollars) you get if you climb that mountain, where $R[i]$ is 1, 0 or -1. 
 A negative reward means you must pay to climb the mountain!
@@ -26,9 +26,9 @@ What is the minimum effort required to do this?
 
 The first line of input will contain the integer $N$, the number of mountains.
 
-The second line will contain $N$ integers, the $i$-th of which is $H[i]$, the height of the $i$-th mountain.
+The second line will contain $N$ integers, the $i$th of which is $H[i]$, the height of the $i$th mountain.
 
-The third line will contain $N$ integers, the $i$-th of which is $R[i]$, the reward you get for climbing the $i$-th mountain.
+The third line will contain $N$ integers, the $i$th of which is $R[i]$, the reward you get for climbing the $i$th mountain.
 
 ## Constraints
 
