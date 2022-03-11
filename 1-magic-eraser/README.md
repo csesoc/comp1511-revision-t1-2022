@@ -34,5 +34,5 @@ input00.txt
 
 ## Explanation 0
 
-Your original magic eraser is subdivided into 8 smaller cubes, each with a side length of 1 centimetre. Therefore, since each cube has 6 sides, the total surface area of the cubes is 48 square centimetres.
+Your original magic eraser is subdivided into 8 smaller cubes, each with a side length of 1 centimetre (See `diagram.png`). Therefore, since each cube has 6 sides, the total surface area of the cubes is 48 square centimetres.
 
