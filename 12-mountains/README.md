@@ -39,10 +39,6 @@ For all test cases:
 - $R[i]$ is $1, 0 or -1$ for all $i$.
 - $R[i] = 1$ for at least one $i$.
 
-Note that $H[i]^2$ can overflow a 32-bit integer (e.g. an `int` in C).
-We recommend using 64-bit integers (e.g. a `long long` in C).
-If you are using Python, then this is not an issue.
-
 Additionally:
 
 - For test cases worth 25%, $N \le 20$.
@@ -52,6 +48,10 @@ Additionally:
 ## Output Format
 
 Output a single integer: the minimum effort required to make at least 1 dollar.
+
+Note that the answer can overflow a 32-bit integer (e.g. an `int` in C).
+We recommend using 64-bit integers (e.g. a `long long` in C).
+If you are using Python, then this is not an issue.
 
 ## Sample Input 0
 

@@ -1,4 +1,7 @@
+function(long_integer, solve, integer N, integer_array H, integer_array R, #StartCode)
+# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
 integer(N)
 array(integer, H, N, single)
 array(integer, R, N, single)
-#StartCode
+invoke(long_integer, result, solve, N, H, R)
+print(long_integer, result)

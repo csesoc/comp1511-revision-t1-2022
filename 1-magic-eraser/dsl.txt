@@ -1,4 +1,6 @@
+function(integer, solve, integer X, integer Y, #StartCode)
+# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
 integer(X)
 integer(Y)
-
-#StartCode
+invoke(integer, result, solve, X, Y)
+print(integer, result)

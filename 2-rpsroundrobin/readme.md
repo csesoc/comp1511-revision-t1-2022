@@ -12,7 +12,7 @@ They will face off in $N$ rounds of RPS. In the $i$th round (starting from 1), t
 
 The first line of input will contain a single integer, $N$.
 
-The second line of input will contain $N$ characters which describe Jack's moves.
+The second line of input will contain a string $S$ of $N$ characters, which describes Jack's moves.
 
 ## Constraints
 

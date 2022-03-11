@@ -1,16 +1,9 @@
+function(string_array, solve, integer N, string_array allowed_words, integer K, string_array guesses, string_array responses)
+# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
 integer(N)
-loop(N)
-	# Allowed word
-	string(word)
-endloop
-
+array(string, allowed_words, N, multi)
 integer(K)
-
-loop(N)
-	# Guess
-	string(guess)
-	# Response to the guess
-	string(response)
-endloop
-
-#StartCode
+array(string, guesses, K, multi)
+array(string, responses, K, multi)
+invoke(string_array, result, solve, N, allowed_words, K, guesses, responses)
+print(string_array, result, NEWLINE)

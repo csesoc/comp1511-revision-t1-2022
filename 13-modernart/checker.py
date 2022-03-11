@@ -33,6 +33,8 @@ def run_custom_checker(t_obj, r_obj):
     # Don't print anything to STDOUT in this function
     # Enter your custom checker scoring logic here
     
+    sys.setrecursionlimit(10**9)
+
     input_file = t_obj.testcase_input_path
     output_file = t_obj.submission_code_path
     

@@ -4,7 +4,7 @@ Vowels and Consonants
 
 ## Problem Statement
 
-Given a string in uppercase, determine if it has more vowels, more consonants, or an equal amount of each.
+Given a string $S$ of uppercase letters, determine if it has more vowels, more consonants, or an equal amount of each.
 
 The letter `Y` is considered a consonant in this question.
 
@@ -12,7 +12,7 @@ The letter `Y` is considered a consonant in this question.
 
 The first line of input contains the integer $N$, the number of letters in the string.
 
-The second line will contain the string as a sequence of $N$ uppercase letters of length $N$.
+The second line will contain the string $S$ as a sequence of $N$ uppercase letters of length $N$.
 
 ## Constraints
 

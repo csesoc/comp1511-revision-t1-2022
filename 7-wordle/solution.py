@@ -15,9 +15,11 @@ for i in range(N):
 	candidates.append(input().strip())
 
 K = int(input())
+guesses = [input().strip() for i in range(K)]
+ress = [input().strip() for i in range(K)]
 for i in range(K):
-	guess = input().strip()
-	res = input().strip()
+	guess = guesses[i]
+	res = ress[i]
 	new_cands = []
 	for cand in candidates:
 		if get_result(cand, guess) == res:

@@ -14,6 +14,8 @@ int main() {
 	scanf("%d", &K);
 	for (int i = 0; i < N; i++) {
 		scanf(" %s", guess[i]);
+	}
+	for (int i = 0; i < N; i++) {
 		scanf(" %s", result[i]);
 	}
 
