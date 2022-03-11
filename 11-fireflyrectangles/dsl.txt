@@ -1,0 +1,4 @@
+integer(N)
+array(integer, x, N, single)
+array(integer, y, N, single)
+#StartCode
