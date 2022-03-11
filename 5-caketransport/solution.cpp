@@ -18,9 +18,9 @@ int main() {
         max2 = max(max2, tx);
     }
 
-    if (max1 > min2 && max2 > min1) {
-        printf("collision!\n");
+    if (max(min1, min2) <= min(max1, max2)) {
+        printf("Collision!\n");
     } else {
-        printf("miss!");
+        printf("No Collision!\n");
     }
 }
