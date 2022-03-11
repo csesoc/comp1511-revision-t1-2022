@@ -1,7 +1,10 @@
 integer(N)
 loop(N)
+	# Process each person in this loop
 	string(person) integer(loudness) integer(numSports)
 	loop(numSports)
+		# Process each sport for this person in this loop
 		string(sport)
 	endloop
 endloop
+# Write any more code required and output your answer here

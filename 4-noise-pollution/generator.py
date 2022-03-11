@@ -18,11 +18,11 @@ DIR_PATH = "tests"
 # Put functions here
 def sample0():
     return [
-        "pat    1000 2 nrl boxing",
-        "angus  20   2 soccer nrl",
-        "isaiah 0    2 tennis cricket",
-        "zhi    1    0",
-        "ryan   50   1 tennis",
+        "pat 1000 2\nnrl\nboxing",
+        "angus 20 2\nsoccer\nnrl",
+        "isaiah 0 2\ntennis\ncricket",
+        "zhi 1 0",
+        "ryan 50 1\ntennis",
     ]
 
 def genStrings(N):
@@ -41,7 +41,7 @@ def big(N, numSports, maxSports):
     output = []
     for loudness, name in enumerate(names):
         currSports = random.sample(sports, random.randrange(0, maxSports))
-        output.append(" ".join([name, str(loudness), str(len(currSports)), *currSports]))
+        output.append("\n".join([" ".join([name, str(loudness), str(len(currSports))])] + currSports))
     random.shuffle(output)
     return output
         

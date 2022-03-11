@@ -2,9 +2,10 @@
 N = int(input())
 loudests = {}
 for rep in range(N):
-        person, loudness, numSports, *sports = input().split()
+        person, loudness, numSports = input().split()
         loudness = int(loudness)
         numSports = int(numSports)
+        sports = [input() for _ in range(numSports)]
         
         for sport in sports:
                 if sport not in loudests or loudness > loudests[sport][0]:
