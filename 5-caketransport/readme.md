@@ -33,7 +33,7 @@ If the two cakes will collide, then you should output `Collision!`. If they will
 
 ## Explanation 0
 
-Since the two cakes can slide freely up and down, the correct output is "No Collision!".
+Since the two cakes can slide freely up and down, the correct output is `No Collision!`.
 
 ## Sample Input 1
 
@@ -41,4 +41,5 @@ Since the two cakes can slide freely up and down, the correct output is "No Coll
 
 ## Explanation 1
 
-Since the two cakes cannot slide freely up and down, the correct output is "Collision!"
+It is possible for the first cake to slide up and the second to slide down, however it is not possible for the first cake to slide down and the second to slide up. 
+There the correct output is `Collision!`
