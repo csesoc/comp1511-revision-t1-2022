@@ -51,7 +51,9 @@ input00.txt
 
 ## Explanation 0
 
-The diagram TODO depicts the sites and roads of TreeTown.
+The diagram depicts the sites and roads of TreeTown.
+The large numbers inside the circles are the values of $x[i]$,
+and the small numbers outside the circles are the indices $i$ of the sites.
 
 A valid holiday lasting 15 days visits the following sites in order:
 $0, 2, 0, 2, 0, 3, 4, 3, 1, 3, 4, 3, 0, 2, 0$.
