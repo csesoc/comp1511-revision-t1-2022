@@ -1,0 +1,7 @@
+integer(N)
+loop(N)
+	string(person) integer(loudness) integer(numSports)
+	loop(numSports)
+		string(sport)
+	endloop
+endloop
