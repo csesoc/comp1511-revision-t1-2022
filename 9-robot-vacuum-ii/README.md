@@ -32,6 +32,6 @@ input00.txt
 
 ## Explanation 0
 
-After removing some instructions, it may arrive at this new sequence of instructions: `U  URD DL`.
+After removing some instructions, it may arrive at this new sequence of instructions: `U  URD DL`. See `diagram.jpg`, Marvin starts and ends at the square.
 
 Marvin reaches a distance of 2 + 1, and returns to the origin. It can be shown that this is the maximum possible manhattan distance.
