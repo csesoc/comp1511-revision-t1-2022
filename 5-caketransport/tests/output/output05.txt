@@ -1,1 +1,1 @@
-No Collision!
+Collision!

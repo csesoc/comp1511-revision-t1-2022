@@ -6,6 +6,8 @@ def scan_cake(n):
     for i in range(n):
         x, y = input().split()
         x = int(x)
+        y = int(y)
+        assert max(abs(x), abs(y)) <= 1_000_000_000
         mnx = min(mnx, x)
         mxx = max(mxx, x)
     return (mnx, mxx)

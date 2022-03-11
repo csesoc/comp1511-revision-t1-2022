@@ -27,16 +27,20 @@ MAKE_OUTPUT_COMMAND = "python solution.py < {0} > {1}"
 DIR_PATH = "tests"
 
 # Put functions here
-def sample0():
-    return None
 
 def genRect(MAX_RANGE):
-    x1 = random.randint(-MAX_RANGE, MAX_RANGE)
+    """x1 = random.randint(-MAX_RANGE, MAX_RANGE)
     y1 = random.randint(-MAX_RANGE, MAX_RANGE)
     x2 = random.randint(-MAX_RANGE, MAX_RANGE)
     y2 = random.randint(-MAX_RANGE, MAX_RANGE)
     x1, x2 = min(x1, x2), max(x1, x2)
     y1, y2 = min(y1, y2), max(y1, y2)
+    return x1, y1, x2, y2"""
+    
+    x1 = random.randint(-MAX_RANGE, MAX_RANGE)
+    y1 = random.randint(-MAX_RANGE, MAX_RANGE)
+    x2 = x1 + random.randint(0, MAX_RANGE if MAX_RANGE <= 100 else MAX_RANGE // 20)
+    y2 = y1 + random.randint(0, MAX_RANGE if MAX_RANGE <= 100 else MAX_RANGE // 20)
     return x1, y1, x2, y2
 
 def intersect(x1, y1, x2, y2, x1_, y1_, x2_, y2_):
@@ -78,7 +82,8 @@ def gen(N, M, MAX_RANGE = 1_000_000_000, SPLIT = None):
             if rectsN == [] or any(intersect(x1, y1, x2, y2, *i) for i in rectsN):
                 rectsN.append((x1, y1, x2, y2))
     
-
+    union(rectsN)
+    
     while len(rectsM) < M:
         x1, y1, x2, y2 = genRect(MAX_RANGE)
         if SPLIT == None or x1 >= SPLIT:
@@ -93,12 +98,13 @@ def gen(N, M, MAX_RANGE = 1_000_000_000, SPLIT = None):
 # Put cases here, CASES should be a list of dicts
 # but its a list of lists here so cop it
 CASES = [
-    gen(10, 10, 1_000),
-    gen(10, 10, 1_000, SPLIT=69),
-    gen(100, 100, 1_000_000),
-    gen(100, 100, 1_000_000, SPLIT=-210),
-    gen(1000, 1000, 1_000_000_000),
-    gen(1000, 1000, 1_000_000_000, SPLIT=531),
+    gen(3, 3, 100), # collision
+    gen(3, 2, 10), # no collision
+    gen(4, 4, 10), # collision
+    gen(100, 100, 1_000_000), # no collision
+    gen(100, 100, 1_000_000, SPLIT=-211290), # no collision
+    gen(1000, 1000, 1_000_000_000), # collision
+    gen(1000, 1000, 1_000_000_000, SPLIT=52131), # no collision
 ]
 
 # Generation code. Anything past here should not need to be touched.
