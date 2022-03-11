@@ -7,15 +7,21 @@ int main() {
     scanf("%d %d", &n, &m);
 
     for (int i = 1; i <= n; i++) {
-        scanf("%d %d", &tx, &ty);
+        scanf("%d", &tx);
         min1 = min(min1, tx);
         max1 = max(max1, tx);
     }
+    for (int i = 1; i <= n; i++) {
+        scanf("%d", &ty);
+    }
 
     for (int i = 1; i <= m; i++) {
-        scanf("%d %d", &tx, &ty);
+        scanf("%d", &tx);
         min2 = min(min2, tx);
         max2 = max(max2, tx);
+    }
+    for (int i = 1; i <= n; i++) {
+        scanf("%d", &ty);
     }
 
     if (max(min1, min2) <= min(max1, max2)) {

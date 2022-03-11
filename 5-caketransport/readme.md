@@ -12,9 +12,13 @@ Determine for Alex if the cakes can slide freely up and down without collision. 
 
 The first line of input contains two integers, $N$ and $M$.
 
-The next $N$ lines of input will represent the corners of the first cake, in order. The $i$-th line will contain $x[i]$ and $y[i]$, the coordinates of the $i$-th corner.
+The second and third lines describe the first cake. 
+In particular, the second line will contain $N$ integers, the $i$-th of which is $x[i]$, the $i$-th x-coordinate of the first cake.
+The third line will contain $N$ integers, the $i$-th of which is $y[i]$, the $i$-th y-coordinate of the first cake.
 
-The next $M$ lines of input will represent the corners of the second cake, in order. The $j$-th line will contain $x[j]$ and $y[j]$, the coordinates of the $j$-th corner.
+The fourth and fifth lines describe the second cake. 
+In particular, the fourth line will contain $M$ integers, the $j$-th of which is $x[j]$, the $j$-th x-coordinate of the second cake.
+The fifth line will contain $M$ integers, the $j$-th of which is $y[j]$, the $j$-th y-coordinate of the second cake.
 
 ## Constraints
 

@@ -3,13 +3,15 @@ import sys
 def scan_cake(n):
     mnx = sys.maxsize
     mxx = -sys.maxsize
-    for i in range(n):
-        x, y = input().split()
-        x = int(x)
-        y = int(y)
-        assert max(abs(x), abs(y)) <= 1_000_000_000
+
+    xs = [int(x) for x in input().split()]
+    ys = [int(x) for x in input().split()]
+    for x in xs:
+        assert abs(x) <= 1_000_000_000
         mnx = min(mnx, x)
         mxx = max(mxx, x)
+    for y in ys:
+        assert abs(y) <= 1_000_000_000
     return (mnx, mxx)
 
 

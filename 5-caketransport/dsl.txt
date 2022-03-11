@@ -1,0 +1,6 @@
+integer(N) integer(M)
+array(integer, x_cake1, N, single)
+array(integer, y_cake1, N, single)
+array(integer, x_cake2, M, single)
+array(integer, y_cake2, M, single)
+#StartCode
