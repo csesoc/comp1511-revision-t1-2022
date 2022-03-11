@@ -22,11 +22,16 @@ Output a single integer, Jack's total winnings
 
 ## Sample Input 0
 
+```
+7
 PSRRRRP
+```
 
 ## Sample Output 0
 
+```
 19
+```
 
 ## Explanation 0
 
