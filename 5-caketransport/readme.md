@@ -23,7 +23,7 @@ $-1,000,000,000 \leq x_i, y_i, x_j, y_j \leq 1,000,000,000$
 
 ## Output Format
 
-If the two cakes will collide, then you should output "Collision!". If they will not collide, then you should output "No Collision!".
+If the two cakes will collide, then you should output `Collision!`. If they will not collide, then you should output `No Collision!`.
 
 ## Sample Input 0
 
