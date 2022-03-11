@@ -4,9 +4,9 @@ Cake Transport
 
 ## Problem Statement
 
-Alex, the world-renowned cake shef, has baked two cakes giant cakes, and placed them on a very long table, which can be thought of as a 2D plane. Each cake can be represented by an axis-aligned polygon on that table. You are guaranteed that the two cakes are disjoint, and that they do not intersect themself. Alex has baked these cakes for two customers, sitting at the top and bottom of the table. One cake will be sent up to the top of the table, the other will be sent down to the bottom of the table. However, Alex does not know which cake will go up and which will go down.
+Alex, the world-renowned cake shef, has baked two giant cakes and placed them on a very long table, which can be thought of as a 2D plane. Each cake can be represented by an axis-aligned polygon on that table. You are guaranteed that the two cakes are disjoint, and that they do not intersect themselves. Alex has baked these cakes for two customers, sitting at the top and bottom of the table. One cake will be sent up to the top of the table, the other will be sent down to the bottom of the table. However, Alex does not know which cake will go up and which will go down, and so wants to make sure that it is possible to get the cakes to the customers in both scenarios.
 
-Determine for Alex if the cakes can slide freely up and down without collision.
+Determine for Alex if the cakes can slide freely up and down without collision. It counts as a collision even if the cakes will touch at a single point.
 
 ## Input Format
 
