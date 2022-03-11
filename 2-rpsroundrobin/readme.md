@@ -18,11 +18,11 @@ The second line of input will contain $N$ characters which describe Jack's moves
 
 For all test cases:
 
-- $1 \le N \le 100$
+- $1 \le N \le 100$.
 
 ## Output Format
 
-Output a single integer, Jack's total winnings
+Output a single integer, Jack's total winnings.
 
 ## Sample Input 0
 
@@ -30,4 +30,4 @@ input00.txt
 
 ## Explanation 0
 
-Here, the robot throws the sequence "RPSRPSR". Hence, Jack wins 1 + 2 + 3 + 0 + 0 + 6 + 7 = 19 bitcoins
+Here, the robot throws the sequence "RPSRPSR". Hence, Jack wins 1 + 2 + 3 + 0 + 0 + 6 + 7 = 19 bitcoins.
