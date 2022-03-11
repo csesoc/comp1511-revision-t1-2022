@@ -13,7 +13,7 @@ For simplicity, distance is defined as the manhattan distance, which is the sum 
 
 The first line of input contains the integer $N$, the number instructions.
 
-The following line will contain $N$ characters, which are either U, D, L or R.
+The following line will contain $N$ characters, which are either `U`, `D`, `L` or `R`.
 
 ## Constraints
 
