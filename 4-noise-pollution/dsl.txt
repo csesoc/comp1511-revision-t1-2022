@@ -8,3 +8,4 @@ loop(N)
 	endloop
 endloop
 # Write any more code required and output your answer here
+# ***********************************************\n*                                             *\n*   This challenge has no `solve` function.   *\n*   Instead, use the stub code above.         *\n*                                             *\n***********************************************\n
