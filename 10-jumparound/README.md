@@ -34,7 +34,7 @@ The fourth line contains $N-1$ integers, the $i$th of which is $b[i]$.
 For all test cases:
 
 - $2 \le N \le 100000$.
-- $1 \le a[i] < b[i] \le N$ for all $i$.
+- $1 \le a[i], b[i] \le N$ and $a[i] \neq b[i]$ for all $i$.
 - $1 \le x[i] \le 10000$ for all $i$.
 
 Additionally:
