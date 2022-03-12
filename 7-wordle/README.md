@@ -32,9 +32,9 @@ Each line contains one 5-letter uppercase word with no repeated letters.
 All $N$ words are different.
 
 The next line contains $K$, the number of guesses you made.
-Each guess is described by two lines. 
-The first line contains the word you guessed, which is one of the allowed words.
-The second line contains the response to this guess, which is a 5-letter string consisting of `G`, `Y` and `.`.
+The next $K$ lines contain the words you guessed, which are all one of the allowed words.
+The following $K$ lines contains the responses to your guesses, in the same order as the guesses are given. 
+Each response is a 5-letter string consisting of `G`, `Y` and `.`.
 
 ## Constraints
 

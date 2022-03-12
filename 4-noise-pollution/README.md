@@ -14,8 +14,8 @@ For each sporting match, who is the loudest person attending?
 The first line of input contains the integer $N$, the number of people attending the matches.
 
 Following this are the descriptions of each person.
-The first line of each person description contains their name as a string, then two integers: their loudness, and the number of matches they will attend.
-The following $N$ lines each contain a distinct string, representing a match that the person attends.
+The first line of each person description contains their name as a string, then two integers: their loudness, and the number of matches they will attend (call this $K$).
+The following $K$ lines each contain a distinct string, representing a match that the person attends.
 
 ## Constraints
 
