@@ -1,3 +1,5 @@
+> Note: I'm in the process of organising this repo, everything will be up soon :)
+
 # [Nextra](https://nextra.vercel.app)
 
 _Warning: this project is not production ready, API might change without notice._
