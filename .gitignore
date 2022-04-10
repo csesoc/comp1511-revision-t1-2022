@@ -1,2 +1,5 @@
-.vercel
 node_modules
+.vercel
+.next
+.DS_Store
+yarn-error.log
