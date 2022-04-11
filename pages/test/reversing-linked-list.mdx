@@ -1,0 +1,27 @@
+# Reversing a Linked List: Easy as 1, 2, 3
+
+There are two common erroneous approaches I see that on the surface seem to work.
+
+The first is to start from the head and the tail, and swap the elements in the list, as if you were operating on an array. This would be done with two pointers, and after a swap the front pointer would move up and the rear pointer would move back. This would continue until the two pointers meet in the middle.
+
+The problem with this is if your ListNode class looks like this:
+
+```c
+class ListNode {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+let node1 = new ListNode(1);
+/* How node1 looks on the inside:
+{
+  value: 1
+  next: null
+}
+*/
+```
+
+Then you only have a single reference to the next node in the list, but no reference to the previous node. This means there’s no way for the pointer at the end to move backwards through the list.
+The second approach is to dump the contents of a linked list into some other data structure, like an array, and then create a new linked list, starting from the back of the array, or by first reversing that array.
+This seems like a reasonable approach, and works well when the data we’re working with in the nodes is small, or we don’t have a large number of nodes. Like in this example, where our nodes are only holding integers as their values, and we only have 3 nodes.
