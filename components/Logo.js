@@ -1,13 +1,23 @@
 // Renders CSESoc logo in light and dark theme.
+import { useState, useEffect } from 'react'
 import { useTheme } from 'next-themes'
 
 export default function Logo() {
-  // nextra-doc-themes uses next-themes for dark mode styling.
-  // Use the useTheme() hook to get the current theme.
-  const { theme, setTheme } = useTheme()
+  const [theme, setTheme] = useState()
+  // nextra-theme-docs uses next-themes for dark mode styling. Get theme state from provided hook.
+  const themeHook = useTheme()
 
-  // Return CSESoc light logo SVG if light theme. Else, dark.
-  if (theme == 'light') {
+  // Set theme state by checking class in root element manually, as themeHook is undefined as page renders.
+  useEffect(() => {
+    if (document.documentElement.classList.contains('light') === true) {
+      setTheme('light')
+    } else {
+      setTheme('dark')
+    }
+  }, [themeHook])
+
+  if (theme === 'light') {
+    // Return CSESoc logo light SVG.
     return (
       <svg
         width="90"
@@ -27,6 +37,7 @@ export default function Logo() {
       </svg>
     )
   } else {
+    // Dark version of CSESoc logo.
     return (
       <svg
         width="90"
