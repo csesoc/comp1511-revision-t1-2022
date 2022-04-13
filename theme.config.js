@@ -1,14 +1,14 @@
 import Logo from './components/Logo'
 
 export default {
-  github: 'https://github.com/shuding/nextra',
+  github: 'https://github.com/csesoc/comp1511-revision-2022',
   docsRepositoryBase: 'https://github.com/csesoc/comp1511-revision-2022',
-  titleSuffix: ' – CSESoc',
+  titleSuffix: ' – CSESoc ',
   logo: (
     <>
       <Logo />
       <div className='px-4 text-gray-600 font-normal hidden md:inline'>
-        COMP1511 Revision Session '22
+        COMP1511 Exam Prep n' Chill (T1, 2022)
       </div>
     </>
   ),
@@ -18,7 +18,10 @@ export default {
       <meta name='theme-color' content='#ffffff' />
       <meta name='viewport' content='width=device-width, initial-scale=1.0' />
       <meta httpEquiv='Content-Language' content='en' />
-      <meta name='description' content="COMP1511 Revision Session '22" />
+      <meta
+        name='description'
+        content="COMP1511 Exam Prep n' Chill (T1, 2022)"
+      />
       <meta
         name='og:description'
         content='Questions with solutions + explanations, sample code and more.'
@@ -79,6 +82,6 @@ export default {
   nextLinks: true,
   footer: true,
   footerEditLink: 'Edit this page on GitHub',
-  footerText: <>MIT {new Date().getFullYear()} © Nextra.</>,
+  footerText: <>MIT {new Date().getFullYear()} © UNSW CSESoc.</>,
   unstable_faviconGlyph: '💻'
 }

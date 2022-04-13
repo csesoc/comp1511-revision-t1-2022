@@ -1,0 +1,7 @@
+{
+  // Set default formatter to prettier-standard.
+  "editor.defaultFormatter": "numso.prettier-standard-vscode",
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  }
+}

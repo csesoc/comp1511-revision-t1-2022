@@ -1,24 +1,34 @@
-> Note: I'm in the process of organising this repo, everything will be up soon :)
+# COMP1511 Exam Prep 'n Chill (T1, 2022) website
 
-# [Nextra](https://nextra.vercel.app)
+This site hosts the solutions, explanations and sample code to the questions from the COMP1511 Exam Prep 'n Chill event run on the 27th of March, 2022.
 
-_Warning: this project is not production ready, API might change without notice._
+## Prerequisites
 
-[![](https://vercel.com/button)](https://vercel.com/import/git?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra&c=1)
+Before you start, make sure you have the following installed:
 
-**Nextra** is a [Next.js](https://nextjs.org) and [MDX](https://mdxjs.com) powered, no-code site generator.
+- Git and [GitHub CLI](https://cli.github.com)
+- Node.js, npm and yarn
 
-![](/public/demo.png)
+## Setup
 
-## Development
+Clone the repository:
+`gh repo clone csesoc/comp1511-revision-t1-2022`
 
-The code of Nextra is under the [`core`](https://github.com/shuding/nextra/tree/core) branch.
+## Running the site locally
 
-## Themes
+1. Navigate into `/comp1511-revision-t1-2022`
+2. Install packages with `yarn install`
+3. You're good to go! Run `yarn next` to start.
+4. The site can now be accessed via `http://localhost:3000`.
 
-- [nextra-theme-docs](https://github.com/vercel/swr-site) ([demo](https://swr.vercel.app))
-- [nextra-theme-blog](https://github.com/shuding/site) ([demo](https://shud.in))
+Any changes you make to the site will be reflected instantly on save (i.e. writing solutions).
 
----
+## Formatting and linting
 
-Created by [@shuding](https://github.com/shuding) and [@pacocoursey](https://github.com/pacocoursey) at [Vercel](https://vercel.com). Released under the MIT license.
+Prettier and Standard JS are used for formatting and linting. The VS Code workspace has been configured with the relevant extensions. When you open `/comp1511-revision-t1-2022` in VS Code, a recommendation notification should pop up - click Install. If this doesn't show up, open the command palette and type 'Show Recommended Extensions'.
+
+Once the extensions are installed, open the command palette, type 'Format Document With' and make sure it's set to prettier-standard.
+
+## Documentation
+
+See `contributing.md`.
