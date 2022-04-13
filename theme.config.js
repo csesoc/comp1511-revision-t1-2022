@@ -1,5 +1,4 @@
 import Logo from './components/Logo'
-import Script from 'next/script'
 
 export default {
   github: 'https://github.com/shuding/nextra',
