@@ -59,6 +59,8 @@ The pages are written using extended Markdown syntax. The template files provide
 - [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
 - [Extended Syntax](Tables, code blocks, etc.)
 
+Something to keep in mind is that to start a new line, you need to type two spaces at the end of your current one before hitting `Enter`.
+
 LaTex support has also been added. Look at `problem.mdx` to see how to write LaTex in your page. If your usual syntax doesn't work, that's because the site uses KaTex to render math, essentially a subset of LaTex - see [here](https://katex.org/docs/supported.html) for the supported syntax.
 
 ### Other things
