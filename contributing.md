@@ -4,13 +4,13 @@ Let's get up to speed quickly!
 
 ## Getting started
 
-First, make sure your version of the repo is up to date. Run
+First, make sure your version of the repository is up to date. Run
 
-```
+```bash
 git pull origin master
 ```
 
-Then, create a branch and push it to the repo. This allows you to isolate your work from the main branch. Pick a branch name that reflects the question/s you're writing a solution for.
+Then, create a branch and push it to the repository. This allows you to isolate your work from the main branch. Pick a branch name that reflects the question/s you're writing a solution for.
 
 ```bash
 git checkout -b branch-name
@@ -57,7 +57,7 @@ The name you entered should now display properly.
 The pages are written using extended Markdown syntax. The template files provide a quick overview of what you need to get started. For a quick reference to the syntax, look here:
 
 - [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-- [Extended Syntax (Tables, code blocks, etc.)](https://www.markdownguide.org/extended-syntax/)
+- [Extended Syntax](Tables, code blocks, etc.)
 
 Something to keep in mind is that to start a new line, you need to type two spaces at the end of your current one before hitting `Enter`.
 
