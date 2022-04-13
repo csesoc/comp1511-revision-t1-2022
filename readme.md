@@ -31,4 +31,4 @@ Once the extensions are installed, open the command palette, type 'Format Docume
 
 ## Documentation
 
-See `contributing.md`.
+See [contributing.md](contributing.md).
