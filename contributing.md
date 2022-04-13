@@ -57,7 +57,7 @@ The name you entered should now display properly.
 The pages are written using extended Markdown syntax. The template files provide a quick overview of what you need to get started. For a quick reference to the syntax, look here:
 
 - [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-- [Extended Syntax](Tables, code blocks, etc.)
+- [Extended Syntax (Tables, code blocks, etc.)](https://www.markdownguide.org/extended-syntax/)
 
 Something to keep in mind is that to start a new line, you need to type two spaces at the end of your current one before hitting `Enter`.
 
