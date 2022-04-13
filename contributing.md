@@ -82,4 +82,6 @@ Double-check your spelling, grammar and code to make sure everything's right, th
 gh pr create
 ```
 
-The pull request will be auto-merged once checks are complete and the site re-deployed on Vercel. You can check it out [here](https://comp1511-revision-t1-2022.vercel.app)!
+The pull request will be auto-merged once checks are complete and the site deployed on Vercel. You can check it out [here](https://comp1511-revision-t1-2022.vercel.app)!
+
+If your request fails lint checks, please check why and fix it before committing again. It should be fairly minor!
