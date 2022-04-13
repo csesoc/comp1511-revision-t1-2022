@@ -57,7 +57,7 @@ The name you entered should now display properly.
 The pages are written using extended Markdown syntax. The template files provide a quick overview of what you need to get started. For a quick reference to the syntax, look here:
 
 - [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
-- [Extended Syntax](Tables, code blocks, etc.)
+- [Extended Syntax (Tables, code blocks, etc.)](https://www.markdownguide.org/extended-syntax/)
 
 LaTex support has also been added. Look at `problem.mdx` to see how to write LaTex in your page. If your usual syntax doesn't work, that's because the site uses KaTex to render math, essentially a subset of LaTex - see [here](https://katex.org/docs/supported.html) for the supported syntax.
 
