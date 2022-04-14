@@ -1,0 +1,10 @@
+00, 01, 02: Sample, should be worth 0
+
+The remaining cases should all be weighted equally
+
+03, 04, 05: N <= 20, only 0 and 1
+06, 07, 08: N <= 20
+09, 10, 11: N <= 1000, only 0 and 1
+12, 13, 14: N <= 1000
+15, 16, 17, 18, 19, 20: N <= 100000, only 0 and 1
+21, 22, 23, 24, 25, 26: N <= 100000
