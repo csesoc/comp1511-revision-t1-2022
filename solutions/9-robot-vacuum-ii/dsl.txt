@@ -1,6 +1,0 @@
-function(integer, solve, integer N, string S, #StartCode)
-# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
-integer(N)
-string(S)
-invoke(integer, result, solve, N, S)
-print(integer, result)

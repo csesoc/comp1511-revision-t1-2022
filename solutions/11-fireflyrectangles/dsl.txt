@@ -1,7 +1,0 @@
-function(integer, solve, integer N, integer_array x, integer_array y, #StartCode)
-# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
-integer(N)
-array(integer, x, N, single)
-array(integer, y, N, single)
-invoke(integer, result, solve, N, x, y)
-print(integer, result)

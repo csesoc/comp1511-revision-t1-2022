@@ -1,2 +1,0 @@
-integer(x1) integer(y1) integer(x2) integer(y2)
-#StartCode

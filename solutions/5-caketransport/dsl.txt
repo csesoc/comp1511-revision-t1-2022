@@ -1,9 +1,0 @@
-function(string, solve, integer N, integer M, integer_array x_cake1, integer_array y_cake1, integer_array x_cake2, integer_array y_cake2)
-# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
-integer(N) integer(M)
-array(integer, x_cake1, N, single)
-array(integer, y_cake1, N, single)
-array(integer, x_cake2, M, single)
-array(integer, y_cake2, M, single)
-invoke(string, result, solve, N, M, x_cake1, y_cake1, x_cake2, y_cake2)
-print(string, result)

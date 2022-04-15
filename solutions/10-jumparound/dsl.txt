@@ -1,8 +1,0 @@
-function(integer, solve, integer N, integer_array X, integer_array A, integer_array B)
-# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
-integer(N)
-array(integer, X, N, single)
-array(integer, A, N-1, single)
-array(integer, B, N-1, single)
-invoke(integer, result, solve, N, X, A, B)
-print(integer, result)

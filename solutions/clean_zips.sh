@@ -1,1 +1,0 @@
-rm */tests/tests.zip
