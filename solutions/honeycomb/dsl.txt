@@ -1,0 +1,2 @@
+integer(A) integer(B) integer(C) integer(D) integer(E) integer(F)
+#StartCode

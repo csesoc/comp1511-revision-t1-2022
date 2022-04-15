@@ -1,0 +1,10 @@
+3
+4
+7
+Ace
+2
+Queen
+3
+8
+Queen
+King

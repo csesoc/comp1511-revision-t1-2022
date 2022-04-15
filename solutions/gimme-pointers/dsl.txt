@@ -1,0 +1,5 @@
+function(void, printPointer, integer length, string input, #StartCode)
+
+integer(length)
+string(input)
+invoke(void, _, printPointer, length, input)

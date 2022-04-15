@@ -1,0 +1,6 @@
+function(integer_array, solve, integer N, integer_array p)
+# *********************************************************************\n*                                                                   *\n*   Everything from here handles input/output, and may be ignored.  *\n*                                                                   *\n*********************************************************************\n
+integer(N)
+array(integer, p, N, single)
+invoke(integer_array, result, solve, N, p)
+print(integer_array, result)
