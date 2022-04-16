@@ -71,27 +71,30 @@ void find_best_youtuber(struct youtuber *head_youtuber) {
         double num_videos = current_youtuber->num_videos;
         double total_likes = current_youtuber->total_likes;
         double ratio = total_likes / num_videos;
+        if (max_ratio == ratio) {
+            tie = true;
+            break;
+        }
         if (max_ratio < ratio) {
             max_ratio = ratio;
             best_youtuber = current_youtuber;
-        } else if (max_ratio == ratio) {
-            tie = true;
         }
         current_youtuber = current_youtuber->next;
     }
     
-    if (!tie) {
-        printf(
-            "The best YouTuber is %s.\n"
-            "Number of videos: %d\n"
-            "Total likes: %d\n",
-            best_youtuber->name,
-            best_youtuber->num_videos,
-            best_youtuber->total_likes
-        );
-    } else {
+    if (tie) {
         printf("It's a tie! There is no best YouTuber.\n");
+        return;
     }
+    
+    printf(
+        "The best YouTuber is %s.\n"
+        "Number of videos: %d\n"
+        "Total likes: %d\n",
+        best_youtuber->name,
+        best_youtuber->num_videos,
+        best_youtuber->total_likes
+    );
 }
 
 struct youtuber *populate_youtuber_list(struct video *head_video) {
