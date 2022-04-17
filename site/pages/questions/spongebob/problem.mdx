@@ -1,0 +1,41 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Mocking SpongeBob
+
+---
+
+<img
+  src="https://cdn.vox-cdn.com/thumbor/UeK6ydVPGsqo4U1SL8k5rrPnLZI=/0x0:650x381/920x613/filters:focal(273x139:377x243):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/62893956/mocking_spongebob.0.jpg"
+  alt="meme"
+  width="350"
+/>
+Bring back memories? In 2017, a meme format went viral that lOoKed lIKe tHIs.
+
+**Your task is to create a C program that converts an input string to this meme format, using the following format rules.**
+
+**Format rules:**
+
+- The first vowel and second consonant of each word is converted into uppercase.
+- All other letters remain lowercase.
+
+<Callout emoji="💡">
+  **Hint**: The `string.h` library contains a function that'll help you iterate
+  over each word.
+</Callout>
+
+**Input Format**  
+A string $S$ that can contain characters, numbers or Unicode characters.
+
+**Constraints**  
+$1 \leq S \leq 1024 $
+
+**Output Format**  
+The same string S, formatted in accordance to the rules.
+
+**Examples**
+
+| Input                                     | Output                                    | Explanation                                                                                 |
+| ----------------------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `revision`                                | `rEVision`                                | E is the first vowel. V is the second consonant.                                            |
+| `tuesday 12 april 2022`                   | `tUeSday 12 ApRil 2022`                   | The first vowel and second consonant of each word are capitalised. Numbers remain the same. |
+| `nike air force 1 $160.00, 20% discount!` | `nIKe Air fORce 1 $160.00, 20% dIScount!` | Same as above. Unicode symbols aren't modified.                                             |
