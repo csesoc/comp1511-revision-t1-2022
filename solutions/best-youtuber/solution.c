@@ -35,11 +35,8 @@ struct video *create_video(char *creator, int likes);
 void print_all_videos(struct video *head);
 
 int main(void) {
-    /* Read input from STDIN. */
     struct video *head_video = populate_video_list_from_input();
     // print_all_videos(head_video);
-    
-    /* Enter your code here. Print output to STDOUT. */
     
     struct youtuber *head_youtuber = populate_youtuber_list(head_video);
     update_youtubers_with_info(head_youtuber, head_video);
@@ -61,10 +58,8 @@ void find_best_youtuber(struct youtuber *head_youtuber) {
         double ratio = total_likes / num_videos;
         if (max_ratio == ratio) {
             tie = true;
-            // keep in mind 1511 style guide discourages liberal use of break
-            break;
-        }
-        if (max_ratio < ratio) {
+        } else if (max_ratio < ratio) {
+            tie = false;
             max_ratio = ratio;
             best_youtuber = current_youtuber;
         }
@@ -77,7 +72,7 @@ void find_best_youtuber(struct youtuber *head_youtuber) {
     }
     
     printf(
-        "The best YouTuber is %s.\n"
+        "%s is the best YouTuber.\n"
         "Number of videos: %d\n"
         "Total likes: %d\n",
         best_youtuber->name,
