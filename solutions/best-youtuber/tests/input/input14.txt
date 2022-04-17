@@ -1,0 +1,3 @@
+tie 1, 2000
+tie 2, 2000
+winner anyway, 3000

@@ -1,0 +1,4 @@
+just wins, 45
+just wins, 56
+just loses, 45
+just loses, 55
