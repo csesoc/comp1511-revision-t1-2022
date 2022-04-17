@@ -12,10 +12,8 @@ int main (void) {
     fgets(word, MAX_SIZE, stdin);
     reverse_function(word);
     printf("Reversed input: %s", word);
-    
+
     return 0;
-    
-  
 }
 
 void reverse_function(char word[MAX_SIZE]) {
@@ -26,9 +24,5 @@ void reverse_function(char word[MAX_SIZE]) {
         word[i] = word[strlen(word) - 2 - i];
         word[strlen(word) - 2 - i] = holder;
         i++;
-        
     }
-    
- 
-    
 }

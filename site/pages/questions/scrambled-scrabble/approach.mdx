@@ -1,0 +1,23 @@
+# Approach
+
+_Written by Jasper Di Francesco from CSESoc Education_
+
+My solution can be broken down into 3 sections.
+1. Go through the word, find if the vowels are in the odd/even position
+2. Go through the word again, upon reaching a hyphen add in the highest scoring available letter.
+3. Find the total value of the word.
+
+## Part 1 - finding the positions of the vowels
+This is an important step as it defines which spots in the target word can contain vowels and which can contain consonants.
+
+We will loop through the word until we come across a character which is not a hyphen. Then we check if it is a vowel or not.
+
+## Part 2 - Adding in letters
+An important point to pick up on is that the letter bank is in **reverse alphabetical order**. So once we encounter a hyphen in the target word we want to add in the next vowel/consonant.
+
+As we need to add in either a consonant or vowel, we need to keep two separate counters. If we come across a hyphen in the target word and we need to insert a vowel, we search through the letter bank until we find the next highest vowel and insert it into the target word. We also increment the vowel counter so we don't accidentally use that letter again. We take similar steps for consonants.
+
+If we reach the end of the letter bank without finding a suitable vowel or consonant, then we do not have sufficient letters and the word cannot be made.
+
+## Part 3 - Total of word
+This is the simplest step, we iterate through the target word and add to a total `w[i] - 'a' + 1` which finds the alphabetical value of a letter.

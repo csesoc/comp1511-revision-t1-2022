@@ -1,0 +1,37 @@
+
+# Approach
+
+_Written by Terence Lau from CSESoc Education_
+
+We recognise that it'll be useful to have a YouTuber linked list, so we first
+create a struct for it.
+
+```c
+struct youtuber {
+    char name[BUFFER_SIZE];
+    int num_videos;
+    int total_likes;
+    struct youtuber *next;
+};
+```
+
+The program can then be broken down into these steps:
+
+* 1. Populate the YouTuber linked list by traversing the video linked list and
+   appending a YouTuber whenever a new one is found. See `populate_youtuber_list()`.
+  * Create a helper function for creating a YouTuber node. See `create_youtuber()`.
+  * Create a helper function for checking whether a YouTuber is already in the
+  YouTuber linked list. See `already_in_list()`.
+* 2. For each YouTuber, update their info by traversing the video linked list and
+   adding appropriate values whenever a matching video is found. See
+   `update_youtubers_with_info()`.
+* 3. Now we have a linked list of YouTubers with the relevant info. Traverse it
+   and calculate the likes-to-video ratio of each. Keep a greatest
+   likes-to-video ratio variable to keep track of the greatest ratio and update
+   a best YouTuber variable each time a new maximum is found. See
+   `find_best_youtuber()`.
+  *  Remember to check for ties.
+* 4. Format and print the correct result.
+
+It may be useful to create functions like `print_all_youtubers()` to see how
+input is being handled by your program and for debugging.

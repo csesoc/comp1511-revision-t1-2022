@@ -1,0 +1,72 @@
+# Best YouTuber
+
+## Problem Statement
+
+Your program is given a list of $N$ thought-provoking YouTube videos. Each video has a creator (with name length $S$) and a number of likes ($I$). (They don’t, however, have any dislikes because YouTube removed the dislike button. 😢)
+
+Your task is to print out the YouTuber from among those videos with the best likes-to-videos ratio, along with their video count and total number of likes to prove it. They are thusly crowned the best YouTuber!
+
+A YouTuber’s likes-to-videos ratio is calculated by $\frac{\text{their total likes}}{\text{their number of videos}}$.
+
+If there is a tie, print that there's no best YouTuber.
+
+## Input Format
+
+Each line of input should be in the format `[video creator], [video likes]` (note the separating comma).
+
+## Constraints
+
+For all test cases,
+
+- $1 \le N \le 1,000$
+- $1 \le S \le 128$
+- $0 \le I \le 2,000,000$.
+
+There is no need to mitigate floating-point errors.
+
+## Output Format
+
+*Example 1 Input*
+
+```
+Wild Candy, 84317
+Logan Paul, 9185
+Wild Candy, 20097
+Jaden Smith, 35664
+Wild Candy, 15321
+Logan Paul, 75820
+<CTRL+D>
+```
+
+The provided starter code converts this into a linked list similar to the following.
+
+![image](https://s3.amazonaws.com/hr-assets/0/1650146974-37b322d6f8-video-linked-list.png)
+
+*Example 1 Output*
+
+```
+Logan Paul is the best YouTuber.
+Number of videos: 2
+Total likes: 85005
+```
+
+*Example 1 Explanation*
+
+There are three YouTubers found from among the given videos: Wild Candy, Logan Paul, and Jaden Smith. Calculating each of their likes-to-videos ratios gives $39,911.\dot{6}$, $42,502.5$, and $35,664$, respectively.
+
+As Logan Paul has the greatest likes-to-videos ratio, he's the best YouTuber.
+
+*Example 2 Input*
+
+```
+Will Smith, 2000
+Logan Paul, 2000
+Will Smith, 2000
+<CTRL+D>
+```
+
+*Example 2 Output*
+
+```
+It's a tie! There is no best YouTuber.
+```

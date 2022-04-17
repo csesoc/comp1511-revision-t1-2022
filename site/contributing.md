@@ -74,6 +74,8 @@ git add -A
 git push origin branch-name
 ```
 
+Here's an [example explanation](https://comp1511-revision-t1-2022.vercel.app/questions/spongebob/problem).
+
 ### Once you're done
 
 Double-check your spelling, grammar and code to make sure everything's right, then push your latest changes and open a pull request.
@@ -82,6 +84,6 @@ Double-check your spelling, grammar and code to make sure everything's right, th
 gh pr create
 ```
 
-The pull request will be auto-merged once checks are complete and the site deployed on Vercel. You can check it out [here](https://comp1511-revision-t1-2022.vercel.app)!
+The pull request will be auto-merged once checks are complete and the site deployed on Vercel in around a minute. You can check it out [here](https://comp1511-revision-t1-2022.vercel.app)!
 
 If your request fails lint checks, please check why and fix it before committing again. It should be fairly minor!

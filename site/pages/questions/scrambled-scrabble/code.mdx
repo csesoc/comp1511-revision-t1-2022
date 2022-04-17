@@ -1,3 +1,12 @@
+# Sample Code
+
+[GitHub link](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/scrambled-scrabble/solution.c)
+
+```c
+// Scrambled Scrabble
+// COMP1511 Revision Session (T1, 2022)
+// Written by Jasper Di Francesco for CSESoc x WIT 1511 revision session
+
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,8 +25,8 @@ int main (void) {
     fgets(w, 1024, stdin);
     fgets(lb, 1024, stdin);
 
-    int v = 0;
     // Find index of vowels
+    int v = 0;
     for (int i = 0; i < n; i++)
         if (w[i] != '-') v = (isVowel(w[i])) ? i % 2 : (i + 1) % 2;
 
@@ -26,11 +35,16 @@ int main (void) {
     int vCount = 0;
     int counts[2] = {0, 0};
     for (int i = 0; i < n; i++) {
+        // Check this is an empty slot
         if (w[i] != '-') continue;
+
+        // Check if this slot should be a vowel or consonant
         int searchInd = i % 2 == v;
 
+        // Search for an unused letter
         for (int j = counts[searchInd]; j < n; j++)
         {
+            // We have found a matching letter
             if ((searchInd && isVowel(lb[j])) || (!searchInd && !isVowel(lb[j])))
             {
                 w[i] = lb[j];
@@ -38,15 +52,19 @@ int main (void) {
                 break;
             }
         }
+        // If we did not find a letter
         if (w[i] == '-') {
             printf("Cannot be done!\n");
             exit(0);
         }
     }
-    int final = 0;
 
+    // Calculate final score
+    int final = 0;
     for (int i = 0; i < n; i++)
         final += w[i] - 'a' + 1;
+    
+    // Display final score
     printf("%d\n", final);
 
 }
@@ -55,3 +73,5 @@ bool isVowel(char a) {
     return (a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u') ? true : false;
 }
 
+
+```
