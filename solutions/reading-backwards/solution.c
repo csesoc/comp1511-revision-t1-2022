@@ -10,7 +10,6 @@ int main() {
     fgets(str, MAX, stdin);
 
     int len = strlen(str);
-    str[len] = '\0';
 
     int temp;
     for (int i = 0; i < len/2; i++) {
