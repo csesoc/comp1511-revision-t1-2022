@@ -77,7 +77,7 @@ void find_best_youtuber(struct youtuber *head_youtuber) {
     }
     
     printf(
-        "The best YouTuber is %s.\n"
+        "%s is the best YouTuber.\n"
         "Number of videos: %d\n"
         "Total likes: %d\n",
         best_youtuber->name,
