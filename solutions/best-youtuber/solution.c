@@ -1,5 +1,6 @@
-// A program that constructs a list of YouTube videos from input and prints the
-// YouTuber from among them with the greatest likes-to-video ratio.
+// A program that constructs a list of YouTube videos from input.
+// It then prints the YouTuber from among those videos with the greatest
+// likes-to-video ratio.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,40 +23,27 @@ struct youtuber {
 };
 
 void find_best_youtuber(struct youtuber *head_youtuber);
-struct youtuber *create_youtuber(char *name);
 struct youtuber *populate_youtuber_list(struct video *head_video);
+struct youtuber *create_youtuber(char *name);
 bool already_in_list(char *video_creator, struct youtuber *head_youtuber);
 void update_youtubers_with_info(struct youtuber *head_youtuber, struct video *head_video);
-
-// provided & helper functions
-struct video *create_video(char *creator, int likes);
-void print_all_videos(struct video *head);
 void print_all_youtubers(struct youtuber *head);
 
+// provided functions
+struct video *populate_video_list_from_input(void);
+struct video *create_video(char *creator, int likes);
+void print_all_videos(struct video *head);
+
 int main(void) {
-    struct video *head_video = NULL;
-    struct video *current_video = NULL;
-    
-    char input_line[BUFFER_SIZE];
-    while (fgets(input_line, BUFFER_SIZE, stdin) != NULL) {
-        char creator[BUFFER_SIZE];
-        int likes;
-        sscanf(input_line, "%[^,],%d", creator, &likes);
-        
-        if (head_video == NULL) {
-            head_video = create_video(creator, likes);
-            current_video = head_video;
-        } else {
-            current_video->next = create_video(creator, likes);
-            current_video = current_video->next;
-        }
-    }
-    
+    /* Read input from STDIN. */
+    struct video *head_video = populate_video_list_from_input();
     // print_all_videos(head_video);
+    
+    /* Enter your code here. Print output to STDOUT. */
+    
     struct youtuber *head_youtuber = populate_youtuber_list(head_video);
     update_youtubers_with_info(head_youtuber, head_video);
     // print_all_youtubers(head_youtuber);
-    
     find_best_youtuber(head_youtuber);
     
     return 0;
@@ -73,6 +61,7 @@ void find_best_youtuber(struct youtuber *head_youtuber) {
         double ratio = total_likes / num_videos;
         if (max_ratio == ratio) {
             tie = true;
+            // keep in mind 1511 style guide discourages liberal use of break
             break;
         }
         if (max_ratio < ratio) {
@@ -149,7 +138,53 @@ void update_youtubers_with_info(struct youtuber *head_youtuber, struct video *he
     }
 }
 
-// provided & helper functions
+void print_all_youtubers(struct youtuber *head) {
+    int i = 0;
+    struct youtuber *current = head;
+    while (current != NULL) {
+        printf(
+            "youtuber_%d = {\n"
+            "    name: \"%s\",\n"
+            "    num_videos: %d\n"
+            "    total_likes: %d\n"
+            "}",
+            i,
+            current->name,
+            current->num_videos,
+            current->total_likes
+        );
+        if (current->next != NULL) {
+            printf(",");
+        }
+        printf("\n");
+        i++;
+        current = current->next;
+    }
+}
+
+// provided functions
+
+struct video *populate_video_list_from_input(void) {
+    struct video *head_video = NULL;
+    struct video *current_video = NULL;
+    
+    char input_line[BUFFER_SIZE];
+    while (fgets(input_line, BUFFER_SIZE, stdin) != NULL) {
+        char creator[BUFFER_SIZE];
+        int likes;
+        sscanf(input_line, "%[^,],%d", creator, &likes);
+        
+        if (head_video == NULL) {
+            head_video = create_video(creator, likes);
+            current_video = head_video;
+        } else {
+            current_video->next = create_video(creator, likes);
+            current_video = current_video->next;
+        }
+    }
+    
+    return head_video;
+}
 
 struct video *create_video(char *creator, int likes) {
     struct video *new_video = malloc(sizeof(struct video));
@@ -171,30 +206,6 @@ void print_all_videos(struct video *head) {
             i,
             current->creator,
             current->likes
-        );
-        if (current->next != NULL) {
-            printf(",");
-        }
-        printf("\n");
-        i++;
-        current = current->next;
-    }
-}
-
-void print_all_youtubers(struct youtuber *head) {
-    int i = 0;
-    struct youtuber *current = head;
-    while (current != NULL) {
-        printf(
-            "youtuber_%d = {\n"
-            "    name: \"%s\",\n"
-            "    num_videos: %d\n"
-            "    total_likes: %d\n"
-            "}",
-            i,
-            current->name,
-            current->num_videos,
-            current->total_likes
         );
         if (current->next != NULL) {
             printf(",");
