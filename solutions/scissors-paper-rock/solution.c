@@ -1,76 +1,128 @@
 // Scissors Paper Rock
-// Written by Jeffrey Yao on 3/03/2022
-// Comments used throughout code to explain solution.
+// COMP1511 Exam Prep n' Chill (T1, 2022)
+// Written by Jeffrey Yao for CSESoc Education
 
 #include <assert.h>
 #include <stdbool.h>
 #include <stdio.h>
 
-// Define scissors, paper and rock as constants for clarity.
 #define SCISSORS 'S'
 #define PAPER 'P'
 #define ROCK 'R'
-// Miscallaneous constants
 #define MAX_TURNS 3
+// Store moves in char array of length 6.
+// Why 6: Array length includes turns (T), spaces between turns (S),
+// AND the null terminator (\0).
+// | T | S | T | S | T | \0 |
+#define MAX_LENGTH 6
 
-// Define each player's data as a struct.
 struct player
 {
-    // If turn won, increment points by 1.
     int points;
-    // Store moves in array.
-    char move[3];
+    char moves[MAX_LENGTH];
 };
 
-void checkMove(bool *movesValid, struct player player);
+bool check_move(struct player player);
+bool player_won(
+    struct player active, struct player player1, struct player player2, int i);
+void print_winner(struct player player1, struct player player2);
 
 int main(void)
 {
-
     struct player player1;
     struct player player2;
     player1.points = 0;
     player2.points = 0;
-    bool *movesValid = false;
+    bool moves_valid;
 
-    // TODO: Extract block to function scanMoves
-    // Scan in player moves
-    scanf("%c %c %c", &player1.move[0], &player1.move[1], &player1.move[2]);
-    checkMove(&movesValid, player1);
-    scanf("%c %c %c", &player2.move[0], &player2.move[1], &player2.move[2]);
-    checkMove(&movesValid, player2);
-    // Terminate program if invalid characters entered.
-    assert(movesValid);
+    // Scan in player moves.
+    fgets(player1.moves, sizeof(player1.moves), stdin);
+    // Clear input buffer so next fgets doesn't read null terminator from
+    // previous input. (NOTE: This doesn't work on all compilers, and is a hacky
+    // fix.)
+    fflush(stdin);
+    fgets(player2.moves, sizeof(player2.moves), stdin);
 
-    for (int i = 0; i < MAX_TURNS; i++)
+    // Validate moves.
+    moves_valid = check_move(player1);
+    moves_valid = check_move(player2);
+    // Terminate program if moves invalid.
+    assert(moves_valid);
+
+    // For each turn, check who won.
+    for (int i = 0; i < MAX_LENGTH; i += 2)
     {
-        // A naive solution would be to hardcode each case. Instead, add each
-        // player's moves to check combination present. We can check for the
-        // presence of a certain combination by checking the sum of their ASCII
-        // values.
-        // Case 1: Draw
-        if (player1.move[i] = player2.move[i])
+        bool is_draw = player1.moves[i] == player2.moves[i];
+        bool player1_won = player_won(player1, player1, player2, i);
+
+        if (is_draw)
         {
-            // No points.
-            break;
+            // No points for turn. Move to next turn.
+            continue;
         }
-        // Case 2: Any other combination
-        if (player1.move[i] + player2.move[i] == ROCK + SCISSORS
-            || SCISSORS + PAPER || PAPER + ROCK)
+        else if (player1_won)
         {
-            // Rock beats scissors, scissors beats paper, paper beats rock.
-            if (player1.move[i] == ROCK || SCISSORS || PAPER)
-            {
-                player1.points++;
-            }
-            // If Player 1 doesn't have the winning move, Player 2 must have it.
-            else
-            {
-                player2.points++;
-            }
+            player1.points++;
+        }
+        else
+        {
+            player2.points++;
         }
     }
 
+    print_winner(player1, player2);
+
+    return 0;
+}
+
+// Checks if all moves for player are valid.
+bool check_move(struct player player)
+{
+    if ((player.moves[0] == SCISSORS || player.moves[0] == PAPER
+            || player.moves[0] == ROCK)
+        && (player.moves[2] == SCISSORS || player.moves[2] == PAPER
+            || player.moves[2] == ROCK)
+        && (player.moves[4] == SCISSORS || player.moves[4] == PAPER
+            || player.moves[4] == ROCK))
+    {
+        return true;
+    }
+    else
+    // Characters other than S, P and R have been entered. Moves invalid.
+    {
+        return false;
+    }
+}
+
+// In the case that the turn isn't a draw, check if the specified (active)
+// player won.
+bool player_won(
+    struct player active, struct player player1, struct player player2, int i)
+{
+    // Rock wins against scissors, scissors wins against paper, paper wins
+    // against rock.
+    // Letters correspond to integer ASCII codes in C. This means that we can
+    // 'add' characters together, or their ASCII code values, to check for the
+    // presence of specific combinations. (i.e. R + S = 165)
+    // See the ASCII table here: http://sticksandstones.kstrom.com/appen.html
+    if (player1.moves[i] + player2.moves[i] == ROCK + SCISSORS
+            && active.moves[i] == ROCK
+        || player1.moves[i] + player2.moves[i] == SCISSORS + PAPER
+            && active.moves[i] == SCISSORS
+        || player1.moves[i] + player2.moves[i] == PAPER + ROCK
+            && active.moves[i] == PAPER)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+// Prints winner after game finished.
+void print_winner(struct player player1, struct player player2)
+{
     if (player1.points > player2.points)
     {
         printf("Player 1 won!");
@@ -82,22 +134,5 @@ int main(void)
     else
     {
         printf("It's a draw!");
-    }
-
-    return 0;
-}
-
-// Checks if all moves are valid.
-void checkMove(bool *movesValid, struct player player)
-{
-    if ((player.move[0] == SCISSORS || PAPER || ROCK)
-        && (player.move[1] == SCISSORS || PAPER || ROCK)
-        && (player.move[2] == SCISSORS || PAPER || ROCK))
-    {
-        *movesValid = true;
-    }
-    else
-    {
-        *movesValid = false;
     }
 }
