@@ -29,20 +29,20 @@ export default {
       <meta name='twitter:card' content='summary_large_image' />
       <meta
         name='twitter:image'
-        content='https://csesoc-comp1511-revision-2022.vercel.app/og.png'
+        content='https://comp1511-revision-t1-2022.vercel.app/og.png'
       />
       <meta
         name='twitter:site:domain'
-        content='https://csesoc-comp1511-revision-2022.vercel.app'
+        content='https://comp1511-revision-t1-2022.vercel.app'
       />
       <meta
         name='twitter:url'
-        content='https://csesoc-comp1511-revision-2022.vercel.app'
+        content='https://comp1511-revision-t1-2022.vercel.app'
       />
       <meta name='og:title' content="COMP1511 Revision Session '22" />
       <meta
         name='og:image'
-        content='https://csesoc-comp1511-revision-2022.vercel.app/og.png'
+        content='https://comp1511-revision-t1-2022.vercel.app/og.png'
       />
       <meta name='apple-mobile-web-app-title' content='COMP1511' />
       <link
