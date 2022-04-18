@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Maximum number of players
+#define MAX_PLAYERS 5
 // Maximum number of cards in hand
 #define MAX_CARDS 5
 // Maximum number of chars (including \0) in card name
@@ -49,6 +51,8 @@ int hand_value(int hand[MAX_CARDS]) {
         } else {
             sum += card;
         }
+
+        index++;
     }
 
     while (sum > 21 && aces > 0) {
@@ -76,14 +80,14 @@ int hand_finished(int hand[MAX_CARDS]) {
     int value = hand_value(hand);
     int size = hand_size(hand);
 
-    if (value < 18 || size < 5) {
+    if (value < 18 && size < 5) {
         return 0;
     }
 
     return 1;
 }
 
-int game_finished(int players, int hands[players][MAX_CARDS]) {
+int game_finished(int players, int hands[MAX_PLAYERS][MAX_CARDS]) {
     int index = 0;
 
     while (index < players) {
@@ -100,7 +104,7 @@ int game_finished(int players, int hands[players][MAX_CARDS]) {
 }
 
 int get_card(void) {
-    char *line;
+    char *line = malloc(sizeof(char) * MAX_TITLE);
 
     fgets(line, MAX_TITLE, stdin);
     line[strlen(line) - 1] = '\0';
@@ -108,23 +112,75 @@ int get_card(void) {
     return string_to_value(line);
 }
 
+int find_biggest(int players[MAX_PLAYERS]) {
+    int biggest = 0;
+
+    int index = 1;
+    while (index < MAX_PLAYERS) {
+        if (players[index] > players[biggest]) {
+            biggest = index;
+        }
+
+        index++;
+    }
+
+    return biggest;
+}
+
+void display_hands(int players, int hands[MAX_PLAYERS][MAX_CARDS]) {
+    int hand_values[MAX_PLAYERS] = {0};
+
+    int index = 0;
+    while (index < players) {
+        int value = hand_value(hands[index]);
+
+        if (value > 21) {
+            value = 1;
+        }
+
+        hand_values[index] = value;
+        index++;
+    }
+
+    int sorted[MAX_PLAYERS] = {0};
+
+    index = 0;
+    while (index < players) {
+        int biggest = find_biggest(hand_values);
+        sorted[index] = biggest;
+        hand_values[biggest] = 0;
+        index++;
+    }
+
+    index = 0;
+    while (index < players) {
+        int current = sorted[index];
+        printf(
+            "Player %d %s %s %s %s %s\n", current + 1,
+            value_to_string(hands[current][0]), value_to_string(hands[current][1]),
+            value_to_string(hands[current][2]), value_to_string(hands[current][3]),
+            value_to_string(hands[current][4])
+        );
+
+        index++;
+    }
+}
+
 int main(void) {
     int players;
-    scanf("%d", &players);
+    scanf("%d\n", &players);
 
-    int hands[players][MAX_CARDS];
+    int hands[MAX_PLAYERS][MAX_CARDS] = { {0} };
 
     // Could be done with calloc(), but assuming 1511 knowledge here
     int index = 0;
     while (index < players) {
         int card_index = 0;
-        while (card_index < MAX_CARDS) {
-            // Add first 2 cards
-            if (card_index < 2) {
-                hands[index][card_index] = get_card();
-            } else {
-                hands[index][card_index] = 0;
-            }
+        while (card_index < 2) {
+            int drawn = get_card();
+            hands[index][card_index] = drawn;
+
+            card_index++;
         }
         
         index++;
@@ -146,17 +202,7 @@ int main(void) {
     }
 
     // Print results
-    index = 0;
-    while (index < players) {
-        printf(
-            "Player %d: %s %s %s %s %s\n", index + 1,
-            value_to_string(hands[index][0]), value_to_string(hands[index][1]),
-            value_to_string(hands[index][2]), value_to_string(hands[index][3]),
-            value_to_string(hands[index][4])
-        );
-
-        index++;
-    }
+    display_hands(players, hands);
 
     return 0;
 }
