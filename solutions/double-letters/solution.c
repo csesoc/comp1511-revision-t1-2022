@@ -14,6 +14,6 @@ int main(void) {
         }
         prev = c;
     }
-    printf("There are %d double letters.\n", count);
+    printf("%d\n", count);
     return 0;
 }
