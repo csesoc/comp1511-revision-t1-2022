@@ -1,0 +1,152 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Approach
+
+_Written by Jeffrey Yao from CSESoc Education._
+
+Let's break down what we need to do, then step through each task.
+
+- Scan in player moves
+- Check that the moves are valid
+- If they are, check who won for each turn/round
+- Print the winner
+
+## Miscallaneous style
+
+To improve code clarity, we define constants for commonly used character/numbers in the header, and a struct for player data.
+
+```c
+#define SCISSORS 'S'
+#define PAPER 'P'
+#define ROCK 'R'
+#define MAX_TURNS 3
+// Store moves in char array of length 6.
+// Why 6: Array length includes turns (T), spaces between turns (S),
+// AND the null terminator (\0).
+// | T | S | T | S | T | \0 |
+#define MAX_LENGTH 6
+
+struct player
+{
+    int points;
+    char moves[MAX_LENGTH];
+};
+```
+
+We extract the steps with lengthy logic to separate functions with appropriate names. This ensures our main function's logic is clear.
+
+- Validating moves → `check_move`
+- Checking winner → `player_won`
+- Printing winner → `print_winner`
+
+## Scan in player moves
+
+To scan in strings, we use the `fgets()` function in `<stdio.h>`. Between each `fgets`, we clear the input buffer using `fflush(stdin)` so the next `fgets` doesn't read the null terminator from the previous string.
+
+<Callout type="warning" emoji="⚠️">
+  `fflush(stdin)` is not recommended since its behaviour is not guaranteed and
+  varies between compilers. However, as it works here it's fine. See the
+  relevant [Stack Overflow
+  answer](https://stackoverflow.com/questions/2979209/using-fflushstdin?rq=1).
+</Callout>
+
+```c
+fgets(player1.moves, sizeof(player1.moves), stdin);
+fflush(stdin);
+fgets(player2.moves, sizeof(player2.moves), stdin);
+```
+
+## Check that the moves are valid
+
+We perform the validation logic in a boolean function `check_move`, which checks that the current player's moves are valid. If not, it returns `false`. This requires the `<stdbool.c>` library.
+
+```c
+bool check_move(struct player player)
+{
+    // Each turn's move can only be scissors, paper or rock.
+    if ((player.moves[0] == SCISSORS || player.moves[0] == PAPER
+            || player.moves[0] == ROCK)
+        && (player.moves[2] == SCISSORS || player.moves[2] == PAPER
+            || player.moves[2] == ROCK)
+        && (player.moves[4] == SCISSORS || player.moves[4] == PAPER
+            || player.moves[4] == ROCK))
+    {
+        return true;
+    }
+    else
+    // Characters other than S, P and R have been entered. Moves invalid.
+    {
+        return false;
+    }
+}
+```
+
+_Why use the array indices 0, 2 and 4?_ Recall that after reading the input in using `fgets`, the 'moves' char array looks like this:
+
+```c
+T = player's move on the turn
+S = space specified in input format
+\0 = null terminator indicating end of string
+
+
+| 0 | 1 | 2 | 3 | 4 | 5  |
+--------------------------
+| T | S | T | S | T | \0 |
+```
+
+The relevant array indices for turns 1, 2, 3 are `[0]`, `[2]` and `[4]`.
+
+## If they are, check who won for each turn
+
+We check the winner in a boolean function `player_won`. It uses the following algorithm:
+
+- In each turn, both players can draw the following combinations: rock and scissors, scissors and paper, or paper and rock.
+- Rock wins against scissors, scissors wins against paper, paper wins against rock.
+- If the combination is rock and scissors _and_ the active player drew rock, they must have won the round. The same logic applies for the other combinations.
+- Else, the other player won.
+
+We can check for the presence of a certain combination using the fact that characters correspond to **integer** [ASCII codes](http://sticksandstones.kstrom.com/appen.html) in C. This means that if we 'add' characters together, they sum to an integer value (i.e. R + S = 82 + 83 = 165). Hence, we check for the presence of certain combinations by their integer sum.
+
+```c
+bool player_won(
+    struct player active, struct player player1, struct player player2, int i)
+{
+    if ((player1.moves[i] + player2.moves[i] == ROCK + SCISSORS
+            && active.moves[i] == ROCK)
+        || (player1.moves[i] + player2.moves[i] == SCISSORS + PAPER
+            && active.moves[i] == SCISSORS)
+        || (player1.moves[i] + player2.moves[i] == PAPER + ROCK
+            && active.moves[i] == PAPER))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
+
+Each player has points, starting from 0. For each round they win, their points are incremented by 1. If the round is a draw, no points are awarded for either player.
+
+## Print the winner
+
+If either player has more points than the other, it means they won. If their points are equal it must be a draw.
+
+```c
+void print_winner(struct player player1, struct player player2)
+{
+    if (player1.points > player2.points)
+    {
+        printf("Player 1 won!");
+    }
+    else if (player2.points > player1.points)
+    {
+        printf("Player 2 won!");
+    }
+    else
+    {
+        printf("It's a draw!");
+    }
+}
+```
