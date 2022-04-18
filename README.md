@@ -1,6 +1,6 @@
 ![Event image](site/public/og.png)
 
-## COMP1511 Exam Prep n' Chill (T1, 2022)
+## COMP1511 Exam Prep 'n' Chill (T1, 2022)
 
 Welcome to the repository for the event! This monorepo houses the site and solution code.
 

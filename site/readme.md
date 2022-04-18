@@ -1,4 +1,4 @@
-# COMP1511 Exam Prep 'n Chill (T1, 2022) website
+# COMP1511 Prep 'n' Chill (T1, 2022) website
 
 This site hosts the solutions, explanations and sample code to the questions from the COMP1511 Exam Prep 'n Chill event run on the 27th of March, 2022.
 

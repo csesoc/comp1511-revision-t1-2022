@@ -8,7 +8,7 @@ export default {
     <>
       <Logo />
       <div className='px-4 text-gray-600 font-normal hidden md:inline'>
-        COMP1511 Exam Prep n' Chill (T1, 2022)
+        COMP1511 Prep 'n' Chill (T1, 2022)
       </div>
     </>
   ),
@@ -20,7 +20,7 @@ export default {
       <meta httpEquiv='Content-Language' content='en' />
       <meta
         name='description'
-        content="COMP1511 Exam Prep n' Chill (T1, 2022)"
+        content="COMP1511 Prep 'n' Chill (T1, 2022)"
       />
       <meta
         name='og:description'
