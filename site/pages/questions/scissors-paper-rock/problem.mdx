@@ -1,0 +1,96 @@
+# Scissors Paper Rock
+
+Write a C program that takes the moves of two players in a '_best of 3_' game of Scissors Paper Rock and returns the winner.
+
+**_Clarifications:_**
+
+- There are three rounds in this game.
+- Rock wins against scissors, scissors wins against paper and paper wins against rock.
+- Rock is represented by the character `R`, scissors by the character `S`, and paper by the character `P`.
+
+**Input Format**  
+Two strings, A and B, representing the moves of Players 1 and 2 respectively.
+
+**_Input Format clarifications_**
+
+- Each string is on a new line.
+- Valid moves include the characters R, S and P.
+- The validity of input strings is not guaranteed.
+
+**Constraints**  
+This game has three rounds.
+
+**Output Format**  
+Print the following strings for the scenarios below.
+
+**_If Player 1 wins_**
+
+```c
+Player 1 won!
+```
+
+**_If Player 2 wins_**
+
+```c
+Player 2 won!
+```
+
+**_If the game is a draw_**
+
+```c
+It's a draw!
+```
+
+**_If invalid moves are entered for either or both players_**
+
+```c
+Moves invalid!
+```
+
+**Examples**
+
+**Example 1**
+
+```
+Input:
+S P R
+R R S
+
+Output:
+Player 1 won!
+
+Explanation:
+- Round 1: Player 2 won since rock wins against scissors.
+- Round 2: Player 1 won since paper wins against rock.
+- Round 3: Player 1 won since rock wins against scissors.
+```
+
+**Example 2**
+
+```
+Input:
+S R P
+R P S
+
+Output:
+Player 2 won!
+
+Explanation:
+- Round 1: Player 2 won since rock wins against scissors.
+- Round 2: Player 2 won since paper wins against rock.
+- Round 3: Player 2 won since scissors wins against paper.
+```
+
+**Example 3**
+
+```
+Input:
+A B C
+D E F
+
+Output:
+Moves invalid!
+
+Explanation:
+The above error message is printed if moves are invalid.
+```
