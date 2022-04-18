@@ -6,29 +6,30 @@ Fortunately, the words we create do not have to be real English words. The bank 
 
 **Rules**
 
-- Each letter will have a value corresponding to its position in the alphabet (a = 1, b = 2 etc.)
+- Each letter will have a value corresponding to its position in the alphabet ($a=1$, $b=2$ etc.)
 - Each consonant must be followed by a vowel and each vowel must be followed by a consonant. (“abed” is valid, “abcd” is not). Words can start with either a consonant or vowel.
 - No letter from the letter bank can be used more than once. Note there may be duplicate letters in the letter bank, you can use both.
 
 **Input Format**
 
-You will receive 3 lines as input. 
+You will receive 3 lines as input.
 
-The first is an integer N. 
+The first is an integer $N$.
 
-Next will be the target word of length N, with some letters filled in and hyphens where you insert other letters. You may assume that the target word will always contain at least one letter, i.e you will never be given a target word consisting of all hyphens. 
+Next will be the target word of length $N$, with some letters filled in and hyphens where you insert other letters. You may assume that the target word will always contain at least one letter, i.e you will never be given a target word consisting of all hyphens.
 
-Finally will be the letter bank of length N in reverse alphabetical order.
+Finally will be the letter bank of length $N$ in reverse alphabetical order.
 
 **Constraints**
 
-`1 <= N <= 1024`
+$1 \leq N \leq 1024$
 
 **Output Format**
 
 If a word can be formed, print to stdout the value of the word. If a word cannot be formed, print `"Cannot be done!"`.
 
 **Sample Input 0**
+
 ```
 6
 a-eci-
@@ -43,7 +44,7 @@ bcdhyz
 
 **Explanation 0**
 
-The highest scoring words we can make are “azeciy” or “ayeciz”. Assume we use "azeciy" as our word, then we calculate the score as 1 + 26 + 5 + 3 + 9 + 25 = 69.
+The highest scoring words we can make are “azeciy” or “ayeciz”. Assume we use "azeciy" as our word, then we calculate the score as $1 + 26 + 5 + 3 + 9 + 25 = 69$.
 
 **Sample Input 1**
 
