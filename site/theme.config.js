@@ -24,7 +24,7 @@ export default {
       />
       <meta
         name='og:description'
-        content='Questions with solutions + explanations, sample code and more.'
+        content='Questions with solutions + explanations and sample code.'
       />
       <meta name='twitter:card' content='summary_large_image' />
       <meta
@@ -39,7 +39,7 @@ export default {
         name='twitter:url'
         content='https://comp1511-revision-t1-2022.vercel.app'
       />
-      <meta name='og:title' content="COMP1511 Revision Session '22" />
+      <meta name='og:title' content="COMP1511 Prep 'n' Chill (T1, 2022)" />
       <meta
         name='og:image'
         content='https://comp1511-revision-t1-2022.vercel.app/og.png'
