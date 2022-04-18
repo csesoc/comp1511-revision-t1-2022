@@ -14,6 +14,21 @@ If there is a tie, print that there's no best YouTuber.
 
 Each line of input should be in the format `[video creator], [video likes]` (note the separating comma).
 
+*Example Input*
+
+```
+Wild Candy, 84317
+Logan Paul, 9185
+Wild Candy, 20097
+Jaden Smith, 35664
+Wild Candy, 15321
+Logan Paul, 75820
+```
+
+The provided starter code converts this into a linked list similar to the following.
+
+![image](https://s3.amazonaws.com/hr-assets/0/1650146974-37b322d6f8-video-linked-list.png)
+
 ## Constraints
 
 For all test cases,
@@ -26,7 +41,21 @@ There is no need to mitigate floating-point errors.
 
 ## Output Format
 
-*Example 1 Input*
+```
+[YouTuber name] is the best YouTuber.
+Number of videos: [their number of videos]
+Total likes: [their total likes]
+```
+
+*Example Output*
+
+```
+Logan Paul is the best YouTuber.
+Number of videos: 2
+Total likes: 85005
+```
+
+## Sample Input 0
 
 ```
 Wild Candy, 84317
@@ -35,14 +64,9 @@ Wild Candy, 20097
 Jaden Smith, 35664
 Wild Candy, 15321
 Logan Paul, 75820
-<CTRL+D>
 ```
 
-The provided starter code converts this into a linked list similar to the following.
-
-![image](https://s3.amazonaws.com/hr-assets/0/1650146974-37b322d6f8-video-linked-list.png)
-
-*Example 1 Output*
+## Sample Output 0
 
 ```
 Logan Paul is the best YouTuber.
@@ -50,22 +74,21 @@ Number of videos: 2
 Total likes: 85005
 ```
 
-*Example 1 Explanation*
+# Explanation 0
 
 There are three YouTubers found from among the given videos: Wild Candy, Logan Paul, and Jaden Smith. Calculating each of their likes-to-videos ratios gives $39,911.\dot{6}$, $42,502.5$, and $35,664$, respectively.
 
 As Logan Paul has the greatest likes-to-videos ratio, he's the best YouTuber.
 
-*Example 2 Input*
+# Sample Input 1
 
 ```
 Will Smith, 2000
 Logan Paul, 2000
 Will Smith, 2000
-<CTRL+D>
 ```
 
-*Example 2 Output*
+# Sample Output 1
 
 ```
 It's a tie! There is no best YouTuber.
