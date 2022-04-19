@@ -1,0 +1,5 @@
+integer(n)
+integer_singly_linked_list(l)
+function(integer, findMark, integer rank, integer_singly_linked_list marks)
+invoke(integer, result, findMark, n, l)
+print(integer, result)
