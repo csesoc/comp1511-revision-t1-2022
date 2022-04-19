@@ -3,47 +3,47 @@
 #include <math.h>
 #include <stdlib.h>
 
-void sort_three(double *x, double *y, double *z);
-void swap(double *a, double *b);
+void sort_three(int *x, int *y, int *z);
+
+void swap_nums(int *x, int *y);
 
 int main() {
-	double x, y, z;
-  	
-  	scanf("%lf %lf %lf", &x, &y, &z);
-  	sort_three(&x, &y, &z);
-  	printf("%lf %lf %lf\n", x, y, z);
+    int x, y, z;
+    
+    scanf("%d %d %d", &x, &y, &z);
+    sort_three(&x, &y, &z);
+    printf("%d %d %d\n", x, y, z);
 
     return 0;
 }
 
 /*
-	Takes in three float pointers and sorts the values
+    Takes in three float pointers and sorts the values
     they point to in increasing order.
 */
-void sort_three(double *x, double *y, double *z) {
-    // Determine the smallest element and store into x
-    if (x > z) {
-        swap(x, z);
-    }
-   
-    if (x > y) {
-        swap(x, y);
+void sort_three(int *x, int *y, int *z) {
+    // TODO: Implement this function :)
+
+    if (*x > *z) {
+        swap_nums(x, z);
     }
 
-    // Now the smallest element is stored into x
-    // Compare the remaining two elements 
-    if (y > z) {
-        swap(y, z);
+    if (*x > *y) {
+        swap_nums(x, y);
+    }
+
+    // Now the smallest element is definitely in `x`.
+
+    if (*y > *z) {
+        swap_nums(y, z);
     }
 }
 
-/*
-	Swaps the values in two floats, given as pointers
+/* 
+    Swap where the two pointers point to
 */
-void swap(double *a, double *b) {
-    double temp;
-
-    temp = *a;
-    *a = *b;
-    *b = temp;
+void swap_nums(int *x, int *y) {
+    int tmp = *x;
+    *x = *y;
+    *y = tmp;
 }
