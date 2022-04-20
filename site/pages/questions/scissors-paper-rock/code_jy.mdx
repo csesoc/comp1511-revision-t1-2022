@@ -16,15 +16,21 @@
 #define ROCK 'R'
 #define MAX_TURNS 3
 // Store moves in char array of length 6.
-// Why 6: Array length includes turns (T), spaces between turns (S),
-// AND the null terminator (\0).
-// | T | S | T | S | T | \0 |
-#define MAX_LENGTH 6
+// Why 7: Array length includes turns (T), spaces between turns (S),
+// the EOF character (\n) AND the null terminator (\0).
+// | T | S | T | S | T | \n | \0 |
+#define MAX_LENGTH 7
 
 struct player
 {
     int points;
     char moves[MAX_LENGTH];
+};
+
+struct moves_valid
+{
+    bool p1;
+    bool p2;
 };
 
 bool check_move(struct player player);
@@ -38,20 +44,17 @@ int main(void)
     struct player player2;
     player1.points = 0;
     player2.points = 0;
-    bool moves_valid;
+    struct moves_valid moves_valid;
 
     // Scan in player moves.
     fgets(player1.moves, sizeof(player1.moves), stdin);
-    // Clear input buffer so next fgets doesn't read null terminator from
-    // previous input. (NOTE: This doesn't work on all compilers, and is a hacky
-    // fix.)
-    fflush(stdin);
     fgets(player2.moves, sizeof(player2.moves), stdin);
 
     // Validate moves.
-    moves_valid = check_move(player1);
-    moves_valid = check_move(player2);
-    if (!moves_valid)
+    moves_valid.p1 = check_move(player1);
+    moves_valid.p2 = check_move(player2);
+
+    if (!(moves_valid.p1 && moves_valid.p2))
     {
         printf("Moves invalid!");
         // Terminate with error.
