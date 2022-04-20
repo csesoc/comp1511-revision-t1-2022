@@ -9,9 +9,9 @@ Welcome to the repository for the event! This monorepo houses the site and solut
 For each question you upload, **both** the solution code and a brief explanation must be provided. Please read the README.md in [/solutions](solutions/README.md) and [/site](site/readme.md) for more info.
 
 **Your tasks**  
-[] Read the README.md in [/solutions](solutions/README.md) and [/site](site/readme.md).  
-[] Read the [contributing.md](site/contributing.md) in /site and install the required prereqs.  
-[] Clone the repository locally to work with it and checkout to a separate branch to work with it in isolation (see [contributing.md](site/contributing.md) in /site).  
-[] Once you’ve finished coding up your solution, add it to /solutions following the instructions in the [README.md](solutions/README.md) in /solutions.  
-[] Then, write a quick explanation and add your question, explanation and sample code to the site following the instructions in the [README.md](site/readme.md) in /site. Here's an [example explanation](https://comp1511-revision-t1-2022.vercel.app/questions/spongebob/problem).
-[] Commit your changes and open a pull request. Your solutions and explanations will be added to the repository and pushed to the site automatically! The deploy takes a minute, so once it's done you can check it out at the link on the right sidebar.
+- [ ] Read the README.md in [/solutions](solutions/README.md) and [/site](site/readme.md).  
+- [ ] Read the [contributing.md](site/contributing.md) in /site and install the required prereqs.  
+- [ ] Clone the repository locally to work with it and checkout to a separate branch to work with it in isolation (see [contributing.md](site/contributing.md) in /site).  
+- [ ] Once you’ve finished coding up your solution, add it to /solutions following the instructions in the [README.md](solutions/README.md) in /solutions.  
+- [ ] Then, write a quick explanation and add your question, explanation and sample code to the site following the instructions in the [README.md](site/readme.md) in /site. Here's an [example explanation](https://comp1511-revision-t1-2022.vercel.app/questions/spongebob/problem).
+- [ ] Commit your changes and open a pull request. Your solutions and explanations will be added to the repository and pushed to the site automatically! The deploy takes a minute, so once it's done you can check it out at the link on the right sidebar.
