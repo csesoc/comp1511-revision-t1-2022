@@ -1,0 +1,68 @@
+# Marc Coin
+
+
+Bill and Ethan are trading a cryptocurrency called Marc Coin on the Blocchain, a digital ledger for keeping track of Marc Coin transactions between its traders.
+
+Bill and Ethan make a number of transactions $T$ between each other. Each transaction consists of three things: a transaction ID, a Marc Coin value, and the sender (either Bill or Ethan).
+
+If the sender is Bill, then the receiver is Ethan, and vice versa.
+
+Bill and Ethan both begin with a set balance of 100 Marc Coin.
+
+After all transactions have been made, Bill and Ethan may decide to 'reverse' a number $R$ of their previous transactions. For example, if Bill gave Ethan 23 Marc Coin in transation "845", and later they decide to reverse this transaction, then Ethan gives back Bill 23 Marc Coin.
+
+**Input Format**
+
+The first line contains non-negative integers $T$ and $R$ which are the number of transactions and reversals, respectively.
+
+The next $T$ lines each describe a transaction, including: - a unique and random 3-digit integer transaction ID such as `845`, - a non-negative integer Marc Coin value such as `23`, and - a single character denoting the sender, either `B` for Bill or `E` for Ethan.
+
+The next $R$ lines each describe a reversal using a transaction ID.
+
+**Constraints**
+
+For all test cases:
+
+- $0 < R \le T < 1000$
+- All given transaction IDs will be unique.
+- All given reversals will only be made on existing transactions and no more than once.
+- Bill and Ethan can go into debt with each other, but their balances by the end of the transactions and reversals should always add to 200.
+
+**Output Format**
+
+Output a single line with two integers separated by a space: Bill and Ethan's final balances, respectively.
+
+**Sample Input 0**
+
+```
+2 1
+438 15 B
+892 30 E
+438
+```
+
+**Sample Output 0**
+
+```
+130 70
+```
+
+**Sample Input 1**
+
+```
+5 3
+648 18 B
+232 64 E
+792 12 E
+738 18 B
+943 6 E
+232
+738
+648
+```
+
+**Sample Output 1**
+
+```
+118 82
+```

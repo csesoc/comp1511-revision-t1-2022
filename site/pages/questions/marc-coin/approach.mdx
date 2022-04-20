@@ -1,0 +1,20 @@
+# Approach
+
+_Written by Jasper Di Francesco from CSESoc Education_
+
+We can break down the problem into 3 stages, creating each transaction, removing each transaction and calculating the final balances.
+
+To hold each transaction we will want to create the `struct transaction` data type which should hold an `id`, a `sender` and an `amount`. We will be using this as a linked list so should also include a `next` field as pointer to the next node.
+
+As the first line we want to read in the values of `t` and `r`. We also want to initialise a `head` which will point to the head of our transactions, and a `curr` transaction pointer which we can use to traverse the list.
+
+The first step is to read in transactions, so we will create a loop that goes until we reach `t`, on each iteration we read in an id, an amount and a sender character. We malloc a new list node and add it to the end of the list. 
+
+Once we have added all transactions to the list, we will want to remove the reversed transactions. We will then do another loop up to `r` and read in the transaction id. For each reversal we will want to iterate through the linked list of transactions and once we reach the relevant transaction we remove it.
+
+After removing all reversals we are left with a linked list of just transactions that are going ahead. From here, all we must do is iterate through again and keep track of the balance of Bill and Ethan. By the end of the traversal, our two amounts should always add to 200.
+
+Make sure you free your linked list!
+
+**Bonus:**
+As an added challenge write a solution to this problem with [linear time complexity](https://en.wikipedia.org/wiki/Big_O_notation)!
