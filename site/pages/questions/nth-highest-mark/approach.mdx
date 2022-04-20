@@ -1,0 +1,62 @@
+# Approach
+
+_Written by Max Xue from CSESoc Education_
+
+Explanation of your approach goes here.   
+
+This approach involves adding all the marks in the linked list into an array and then sort that array. We will then find the array element at the index equivalent to the given rank.   
+
+This solution involves three steps:
+1. Count how many nodes are in the linked list. Since we are not given the length of the linked list, we need to manually determine this so we know how large we need to allocate our array that we will use later for sorting.   
+2. Add all the number from the linked list into an array so it is easier to sort.   
+3. Create a second array where we can add all the values in the unsorted array from largest to smallest.   
+
+We then return the array element equal to the rank integer we are given, minus 1 since arrays start from 0.   
+
+```c
+int findMark(int rank, SinglyLinkedListNode* marks) {
+    // Creating a pointer to keep track of the start of the linked list
+    SinglyLinkedListNode *head = marks;
+    
+    // Counting how many nodes are in the linked list so we know how large to make our array
+    int n = 0;
+    while (marks != NULL) {
+        n++;
+        marks = marks->next;
+    }
+    
+    // Putting all our mark values into an array so we can sort it easier later
+    marks = head;
+    int idx = 0;
+    int marksArray[n];
+    while (marks != NULL) {
+        marksArray[idx] = marks->data;
+        idx++;
+        marks = marks->next;
+    }
+    
+    // Creating a second array with the marked sorted
+    int sortedMarks[n];
+    int i = 0;
+    while (i < n) {
+        int currMax = 0;
+        int currMaxIdx = 0;
+        int j = 0;
+        while (j < n) {
+            if (marksArray[j] > currMax) {
+                currMax = marksArray[j];
+                currMaxIdx = j;
+            }
+            j++;
+        }
+        sortedMarks[i] = currMax;
+        marksArray[currMaxIdx] = -1;
+        i++;
+    }
+    
+    // Returning the mark of the given rank
+    // Since the marks are sorted, we can just send back the element at the index of the rank 
+    // (minus 1 because arrays start at index 0)
+    return sortedMarks[rank - 1];
+}
+```
