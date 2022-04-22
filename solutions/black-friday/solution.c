@@ -5,7 +5,8 @@ void swap(int *num, int *num2);
 void bubbleSort(int a[], int lo, int hi);
 void sort(int array[], int newer[], int size);
 
-int main(void) {
+int main(void)
+{
     // Integer pointers, you can point them to an integer array.
     int *smaller_array, *larger_array;
     int bob_item_count, sue_item_count, smaller_array_size, larger_array_size;
@@ -15,23 +16,28 @@ int main(void) {
     int bob[bob_item_count];
     int sue[sue_item_count];
     int counter = 0;
-    while (counter < bob_item_count) {
+    while (counter < bob_item_count)
+    {
         scanf("%d", &bob[counter]);
         counter++;
     }
     counter = 0;
-    while (counter < sue_item_count) {
+    while (counter < sue_item_count)
+    {
         scanf("%d", &sue[counter]);
         counter++;
     }
 
     // Figuring out which of the two array is the smaller one.
-    if (bob_item_count < sue_item_count) {
+    if (bob_item_count < sue_item_count)
+    {
         smaller_array = bob;
         larger_array = sue;
         smaller_array_size = bob_item_count;
         larger_array_size = sue_item_count;
-    } else {
+    }
+    else
+    {
         smaller_array = sue;
         larger_array = bob;
         smaller_array_size = sue_item_count;
@@ -41,7 +47,8 @@ int main(void) {
     // Summing up the items in the smaller_array.
     int total_price = 0;
     counter = 0;
-    while (counter < smaller_array_size) {
+    while (counter < smaller_array_size)
+    {
         total_price += smaller_array[counter];
         counter++;
     }
@@ -51,12 +58,15 @@ int main(void) {
     */
     // method 1: lopping through the larger array `N` times, find the largest element, add it to `total_price`, and replace that element with -1.
     counter = 0;
-    while (counter < smaller_array_size) {
+    while (counter < smaller_array_size)
+    {
         int curr_max = -1;
         int max_index = -1;
         int index = 0;
-        while (index < larger_array_size) {
-            if (larger_array[index] > curr_max) {
+        while (index < larger_array_size)
+        {
+            if (larger_array[index] > curr_max)
+            {
                 curr_max = larger_array[index];
                 max_index = index;
             }
@@ -65,7 +75,7 @@ int main(void) {
         larger_array[max_index] = -1;
         total_price += curr_max;
         counter++;
-    } 
+    }
 
     // method 2: Sort the larger_array, and grab the items from there.
     /*
@@ -81,9 +91,6 @@ int main(void) {
     return 0;
 }
 
-
-
-
 /*
     Simple sorting algorithm,
     Given an array of size N.
@@ -96,17 +103,21 @@ void bubbleSort(int a[], int lo, int hi)
 {
     int i, j, nswaps;
     i = lo;
-    while (i < hi) {
+    while (i < hi)
+    {
         nswaps = 0;
         j = hi;
-        while (j > i) {
-            if (a[j] < a[j-1]) {
-                swap(&a[j], &a[j-1]);
+        while (j > i)
+        {
+            if (a[j] < a[j - 1])
+            {
+                swap(&a[j], &a[j - 1]);
                 nswaps++;
             }
             j--;
         }
-        if (nswaps == 0) {
+        if (nswaps == 0)
+        {
             break;
         }
         i++;
