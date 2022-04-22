@@ -1,3 +1,11 @@
+# Sample Code
+
+[GitHub link](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/black-friday/solution.c)
+
+```c
+// Full sample code goes here.
+// Written by Westley Lo from CSESoc Competitions
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -49,7 +57,8 @@ int main(void) {
     /*
         Getting the N most expensive items from the larger array
     */
-    // method 1: lopping through the larger array `N` times, find the largest element, add it to `total_price`, and replace that element with -1.
+    // method 1: lopping through the larger array `N` times, find the largest element, 
+    // add it to `total_price`, and replace that element with -1.
     counter = 0;
     while (counter < smaller_array_size) {
         int curr_max = -1;
@@ -94,23 +103,19 @@ int main(void) {
 */
 void bubbleSort(int a[], int lo, int hi)
 {
-    int i, j, nswaps;
-    i = lo;
-    while (i < hi) {
+   int i, j, nswaps;
+   for (i = lo; i < hi; i++) {
         nswaps = 0;
-        j = hi;
-        while (j > i) {
+        for (j = hi; j > i; j--) {
             if (a[j] < a[j-1]) {
                 swap(&a[j], &a[j-1]);
                 nswaps++;
             }
-            j--;
         }
         if (nswaps == 0) {
             break;
         }
-        i++;
-    }
+   }
 }
 
 /*
@@ -122,3 +127,4 @@ void swap(int *num, int *num2)
     *num = *num2;
     *num2 = temp;
 }
+```
