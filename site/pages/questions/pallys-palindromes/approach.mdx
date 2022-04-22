@@ -1,0 +1,79 @@
+# Approach
+
+_Written by Winnie Zhang from CSESoc_
+
+This question is all about problem solving and understanding strings/arrays!
+
+For this question, we need to firstly read in the input. To do this, we can use `fgets` to help read in the line of input. We can see the syntax of this below:
+
+```c
+#define MAX 4096
+
+// Variable `str` will store the word
+char str[MAX];
+
+// Take in the word from standard input (the terminal) and put it in the `str` variable
+fgets(str, MAX, stdin);
+
+int len = strlen(str);
+
+// Remove new line character from input string, because `fgets` takes in the whole line, including the newline character at the end.
+str[len] = '\0';
+```
+
+Now comes the harder logic. How do we know it is a palindrome?
+
+Well we want to ensure that the first letter is the same as the last letter, the second letter is the same as the second last letter and so on. This sounds like repetitive work, like a loop!
+
+Let us take the first case, **check if the first letter is the same as the last letter**. Here, we would want to see if index `0` of the array is the same as the last index of the array. The last index of the array isn't `len` of the array because indexing starts at `0`, not `1`, so the last index is `len - 1`.
+
+So if we check that they weren't the same letter, we can immediately say that this is not a palindrome and early return:
+
+```c
+if (str[0] != str[len - 1]) {
+    // print that it is not a palindrome
+    return 0;
+}
+```
+
+Alternatively, you can have what we call a "flag", where there is an `int` or `bool` that is originally set to `true` and will turn to `false` once it is not a palindrome. This means after the loop you check if it is `true` or `false` and print the message accordingly. Here, we avoid the early return.
+
+How do we make this a loop? Well we can start with `int i = 0`. So bringing what we had above, we could get:
+
+```c
+int i = 0;
+
+while (i < len) {
+    // Remember to turn each letter to lowercase as mentioned in the original problem
+    if (tolower(str[i]) != tolower(str[len - i])) {
+        printf("String is not a palindrome\n");
+        // early return if not a palindrome
+        return 0;
+    }
+    i++;
+}
+```
+
+Will this work? Looking closely at the `if` statement, we get
+```c
+if (tolower(str[0]) != tolower(str[len - 0]))
+```
+which is not good because we wanted `len - 1`.
+
+This just means that we should have `str[len - i - 1]` instead and if we try it for `i = 1,2,3,...` we see that it ensures these `i` values work too! So the final while loop looks like:
+
+```c
+int i = 0;
+
+while (i < len) {
+    // Remember to turn each letter to lowercase as mentioned in the original problem
+    if (tolower(str[i]) != tolower(str[len - i - 1])) {
+        printf("String is not a palindrome\n");
+        // early return if not a palindrome
+        return 0;
+    }
+    i++;
+}
+```
+
+If we find that it is not a palindrome, we have early returned so will no execute any code after the while loop. So after the while loop, we know that it did not early return and hence is definitely a palindrome. So right after the palindrome we can print the message that the word is a palindrome then `return 0`.
