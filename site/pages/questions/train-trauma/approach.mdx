@@ -1,0 +1,35 @@
+# Approach
+
+_Written by Jason Liu from CSESoc Competitions_
+
+**This is inteded as a high level explanation of issues which should be considered in the solution.**  
+**For implementation details see the provided sample code.**
+
+There are three main subproblems we have to solve in this question:
+
+1. Representing the train network
+2. Mapping the names of stations
+3. Determining reachability of the `unsw` node.
+
+## Representing the train network
+
+There are many possible valid approaches, however the implementation in the sample solution uses a linked list to keep track of the state of the train network - each station is a node, the track coming out of it is the pointer forward.
+
+Using an array instead would be a suitable alternative, since the maximum number of stations (equal to the maximum number of days) is known to be 1000.
+
+## Mapping the names of stations
+
+A significant part of the challenge will be figuring out how to associate the names of the stations with the pointer to the appropriate node - this can be done by simply searching through either an array of structs, each containing a string for the name and the corresponding pointer (making sure the array has space for at least 1000 elements) OR by creating another linked list to search through instead.
+
+In the sample solution, another linked list is used (referred to as the name list), which is a simple linear linked list. The name list shares a struct definition with the list representing the state of the train network (referred to as the track list).
+
+## Determining reachability of the `unsw` node
+
+To check whether it's possible to get from the start to the end node, we can iterate through the linked list by following the pointers. If our code reaches the end node, print "YES". On the other hand, if we reach a null pointer, print "NO". 
+
+There's also an interesting case (demonstrated in Example 1) where we go in a cycle indefinitely, never reaching the end node - potentially causing an infinite loop. There are two ways we might prevent this:
+
+1. Keep track of how many steps you've taken, and since you should never be taking more than the number of stations (i.e. 1000), give up and print "NO" as soon as you take the 1001th step, since you're definitely in a cycle.
+2. Add an additional flag to your node struct which is set to 1 if the node has been visited before, or 0 otherwise. If you ever visit a node with this flag set to 1, then you're about to enter a cycle. This flag needs to be reset every 'day', e.g. by just stepping through the linked list again.
+
+Option 1 is by far the easier one to do here, and is implemented in the sample solution.
