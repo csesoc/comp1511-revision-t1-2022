@@ -1,0 +1,369 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Approach
+
+_Written by Winnie Zhang from CSESoc Education_
+
+The thinking behind how to implement this question requires great comfortability with the course content, especially the concept of the Abstract Data Type (ADT), Stacks.
+
+<Callout type="warning" emoji="💡">
+    A **Stack** is an ordered collection of items, where the addition and removal or new items follow a "last in, first out" principle. See Week 9 Lecture Notes for more info.
+</Callout>
+
+For our question, we want to keep track of every **opening bracket**, so that we know if we meet a **closing bracket**, we can check if the most recently seen **opening bracket** matches that. The idea that we always want to check the most recently seen **opening bracket** (like the concept of "last in") and "remove" it from our mind once we know that the **opening bracket** has a corresponding **closing bracket** (like the concept of "first out"), we see that our goals to solve this question align with the concept of using a Stack (ADT).
+
+Let us think about how to approach this at a higher level with just the Stack ADT. What we would need is:
+
+1. Create an (empty) Stack. Then later we can start adding and removing things in the stack. Let us make this a helper function: `Stack stack_create()` that returns a created Stack.
+
+2. Push or add items (in this case a `char` or `int`) into the Stack collection. We would need to specify which item we want to put in which stack. Let us make this a helper function: `void stack_push(Stack s, int item)`.
+
+3. Pop or remove items in the Stack collection, and return the removed item (in this case a `char` or `int`). We would need to specify which Stack we want to remove the item from, so the helper function looks like `int stack_pop(Stack s)`.
+
+4. Check the size of the Stack, does our Stack collection have items still inside and how many? We can make a helper function for this: `int stack_size(Stack s)`.
+
+5. Free the Stack to ensure we are not leaking memory. We can do this in making a helper function: `void stack_free(Stack s)`.
+
+Now we have every tool we need to create and use a Stack, how do we use it to solve our problem?
+
+Firstly, we can use `getchar` to read in the input character by character, so we can loop it like:
+
+```c
+// Initialise the first character (like int i = 0)
+int curr_bracket = getchar();
+
+// Loop until End of File , which means until no more input
+while (curr_bracket != EOF) {
+
+    // main logic etc.
+
+    // This gets the next character like an iterator (it is like i++)
+    curr_bracket = getchar();
+}
+```
+
+<Callout type="warning" emoji="💡">
+    Remember, `int` and `char` are quite interchangeable, because every `char` has an integer ascii value and so we can make our items `int` instead of `char` if we wanted to.
+</Callout>
+
+Now for the main logic. As we mentioned, we want to keep track of every **opening bracket**, and to do this, we can just push every opening bracket into the Stack:
+
+```c
+// Create a Stack to house everything first.
+Stack bracketStack = stack_create();
+
+int curr_bracket = getchar();
+
+
+while (curr_bracket != EOF) {
+    if (curr_bracket == '{' || curr_bracket == '[' || curr_bracket == '(') {
+
+        // Since it is an opening bracket, push it into the Stack we created to
+        // keep track of it.
+        stack_push(bracketStack, curr_bracket);
+    } 
+    
+    // more logic....
+
+    curr_bracket = getchar();
+}
+```
+
+Then, we said earlier that if we meet a **closing bracket**, we can check if the most recently seen **opening bracket** matches that.
+
+- If it does, hooray! We have a matching **opening** and **closing bracket** pair. Hence, we no longer need to keep track of that **opening bracket** now because we know it is all good so it is okay that the **opening bracket** item is popped.
+
+- If it does not, then we immediately know it is unbalanced. For example, if the input was `(({[)` we expected the **closing bracket** should have been `]` not `)`. So since the **closing bracket** does not match the most recently seen **opening bracket**, we already know it is unbalanced. We can print that it is unbalanced, use our `stack_free` function to avoid memory leaks and early return.
+
+But there is an edge case! What if the input was `}}]]`, where we do not have a most recently seen **opening bracket**? Even though we know that this input is defintely unbalanced?
+
+Well, this means that our Stack is currently empty, because we have not seen any **opening bracket**. If we make a separate `if` statement to check if the Stack is empty (or has a size of `0`) then we can handle the case accordingly.
+
+We can see all of this below:
+
+```c
+// Create a Stack to house everything first.
+Stack bracketStack = stack_create();
+
+int curr_bracket = getchar();
+
+while (curr_bracket != EOF) {
+    if (curr_bracket == '{' || curr_bracket == '[' || curr_bracket == '(') {
+        // Since it is an opening bracket, push it into the Stack we created to
+        // keep track of it.
+        stack_push(bracketStack, curr_bracket);
+    } else if (curr_bracket == '}' || curr_bracket == ']' || curr_bracket == ')') {
+
+            // Handle the edge case where we have not seen an opening bracket at all.
+            if (stack_size(bracketStack) == 0) {
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;
+            }
+
+            // Otherwise, we can pop out the most recently seen opening bracket.
+            popped_bracket = stack_pop(bracketStack);
+
+            // Here, we ensure that the closing bracket (in `curr_bracket`) is
+            // matching the most recently seen opening bracket (in `popped_bracket`).
+            if ((curr_bracket == '}' && popped_bracket != '{') ||
+                (curr_bracket == ')' && popped_bracket != '(') ||
+                (curr_bracket == ']' && popped_bracket != '[')) {
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;                 
+            }
+        }
+
+        // This gets the next character like an iterator (it is like i++)
+        curr_bracket = getchar();
+    }
+
+```
+
+<Callout type="warning" emoji="💡">
+    We use an `else if` instead of an `else` within the `while` loop because we want to only look at bracket characters and ignore any words, such as inputs like `abcd{{[[(hi)hey]]}}`.
+</Callout>
+
+
+Now, there is one more edge case!
+
+Let us think about the input `{(([[]]`. We do have matching brackets, but not enough matching brackets, therefore this input is still unbalanced.
+
+As we know in the `while` loop, every matching **opening bracket** is popped off the Stack, so the Stack used to look like `{(([[`, but after the while loop, it will look like `{((`.
+
+So, after the while loop, we should expect that the Stack is empty, because every **opening bracket** has a matching **closing bracket**. So if the Stack is not empty, we also know that the brackets are unbalanced and can handle this case accordingly.
+
+This is then what the main function should look like:
+
+```c
+int main() {
+
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */ 
+    Stack bracketStack = stack_create();
+
+    int curr_bracket = getchar();
+
+    while (curr_bracket != EOF) {
+        if (curr_bracket == '{' || curr_bracket == '[' || curr_bracket == '(') {
+            
+            stack_push(bracketStack, curr_bracket);
+
+        } else if (curr_bracket == '}' || curr_bracket == ']' || curr_bracket == ')') {
+            
+            if (stack_size(bracketStack) == 0) {
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;
+            }
+            
+            int popped_bracket = stack_pop(bracketStack);
+            
+            if ((curr_bracket == '}' && popped_bracket != '{') ||
+                (curr_bracket == ')' && popped_bracket != '(') ||
+                (curr_bracket == ']' && popped_bracket != '[')) {
+
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;                 
+            }
+        }
+        curr_bracket = getchar();
+    }
+
+    // Check if the stack is empty or not, to handle that edge case.
+    // This ensures that every opening bracket had a matching closing bracket.
+    if (stack_size(bracketStack) == 0) {
+        printf("Yes, balanced");
+    } else {
+        printf("No, not balanced");
+    }
+
+    // Free the Stack to avoid memory leaks.
+    stack_free(bracketStack);
+
+    return 0;
+}
+```
+
+Awesome! The main logic is done!
+
+Now, we notice that we actually need to implement the functions:
+
+- `Stack stack_create()`
+
+- `void stack_push(Stack s, int item)`
+
+- `int stack_pop(Stack s)`
+
+- `int stack_size(Stack s)`
+
+- `void stack_free(Stack s)`
+
+Luckily, these are all in the Lecture code from Week 9! Click [here](https://cgi.cse.unsw.edu.au/~cs1511/22T1/live/Week09/stack_list.c) for the code.
+
+One small difference is that the lecture code uses `struct stack *` whereas I have used `Stack`. This is an easy fix, by adding the line:
+
+```c
+typedef struct stack *Stack;
+```
+
+which just means `struct stack *` is the same thing as `Stack`.
+
+So, taking the lecture code and connecting it to our main logic, we get:
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+typedef struct stack *Stack;
+
+// Define the stack structure itself, the stack structure in this case 
+// may have a size and a top node (which is the head)
+struct stack {
+    int size;
+    struct node *top;
+};
+
+// Define each element of a stack as a node
+struct node {
+    int data;
+    struct node *next;
+};
+
+Stack stack_create(void);
+void stack_push(Stack s, int item);
+int stack_pop(Stack s);
+int stack_size(Stack s);
+void stack_free(Stack s);
+
+int main() {
+    Stack bracketStack = stack_create();
+
+    int curr_bracket = getchar();
+
+    while (curr_bracket != EOF) {
+        if (curr_bracket == '{' || curr_bracket == '[' || curr_bracket == '(') {
+            
+            stack_push(bracketStack, curr_bracket);
+
+        } else if (curr_bracket == '}' || curr_bracket == ']' || curr_bracket == ')') {
+            
+            if (stack_size(bracketStack) == 0) {
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;
+            }
+            
+            int popped_bracket = stack_pop(bracketStack);
+            
+            if ((curr_bracket == '}' && popped_bracket != '{') ||
+                (curr_bracket == ')' && popped_bracket != '(') ||
+                (curr_bracket == ']' && popped_bracket != '[')) {
+
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;                 
+            }
+        }
+        curr_bracket = getchar();
+    }
+
+    // Check if the stack is empty or not, to handle that edge case.
+    // This ensures that every opening bracket had a matching closing bracket.
+    if (stack_size(bracketStack) == 0) {
+        printf("Yes, balanced");
+    } else {
+        printf("No, not balanced");
+    }
+
+    // Free the Stack to avoid memory leaks.
+    stack_free(bracketStack);
+
+    return 0;
+}
+
+/* All the code below is copy and pasted from the Week 9 Lecture Code to give a point of reference :) */
+
+// If we are creating the stack what will we return and what will be 
+// the input?
+Stack stack_create(void) {
+    //Allocate some memory to the stack structure
+    struct stack *new_stack = malloc(sizeof(struct stack));
+    
+    //Check that there was enough memory to create the stack structure
+    if (new_stack == NULL){
+        printf("There was not enough memory to malloc\n");
+        exit(1);
+    }
+    
+    //TODO: Initialise the stack that was created 
+    new_stack->size = 0;
+    new_stack->top = NULL;
+    
+    return new_stack;
+}
+
+// TODO: Function to push an item onto the stack, what are the 
+// inputs and outputs?
+void stack_push(Stack s, int item) {
+    //Allocate some memory for the new item that you will push on
+    struct node *new_node = malloc(sizeof(struct node));
+    //Check if there is enough memory to make a new node
+    /*if (new_node == NULL) {
+        printf("There is not enough memory to create a node.\n");
+        exit(1);
+    }*/
+    //Initialise the new node
+    new_node->data = item;
+    new_node->next = s->top;
+    
+    //Correct the stack by changing the head and size
+    s->size = s->size + 1;
+    s->top = new_node;
+}
+
+// Function to pop off the stack, so we will be returning the number
+// that was popped off and giving the argument of the stack from which to pop
+int stack_pop(Stack s) {
+    // TODO: Boundary case: what happens if the stack is empty? This means
+    // there is nothing to pop off
+    if (s->size == 0) {
+        printf("There is nothing to pop off the stack, stack is empty\n");
+        return 1;
+    }
+    
+    // TODO: change the top node in the stack to prepare for popping the 
+    // head off
+    struct node *popped_head = s->top;
+    int popped_number = popped_head->data;
+    s->top = s->top->next;
+    s->size = s->size - 1;
+
+    // TODO: Deallocate the memory that was occupied by the node you are popping
+    free(popped_head);
+    return popped_number;
+}
+
+// Function to quickly check the size of the stack
+int stack_size(Stack s) {
+    // What should we return to give the size of the stack?
+    return s->size;
+};
+
+// Function to destroy the whole stack, output is nothing since you are 
+// destroying and input is the stack which you want to destroy
+void stack_free(Stack s){
+    //TODO: condition for traversing though the list to destroy?
+    while (s->size != 0){
+        stack_pop(s);
+    }
+    //TODO: Now that all the nodes are freed and deallocated, need 
+    // to deallocate the actual stack structure
+    free(s);
+}
+```
+
+A fun challenge: As you saw in the lecture notes, the Stack implementation was done using linked list. If you are keen, have a go at implementing it using an array as mentioned in the Week 9 Lecture notes :)
