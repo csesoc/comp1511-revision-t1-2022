@@ -4,7 +4,7 @@ _Written by Winnie Zhang from CSESoc Education_
 
 This question is all about problem solving and understanding strings/arrays!
 
-For this question, we need to firstly read in the input. To do this, we can use `fgets` to help read in the line of input. We can see the syntax of this below:
+For this question, we need to firstly read in the input. To do this, we can use `fgets` to help read in the line of input. Luckily, the input does not have a newline character at the end so we do not need to override it with a `\0`. We can see the syntax of using `fgets` in this question below:
 
 ```c
 #define MAX 4096
@@ -16,9 +16,6 @@ char str[MAX];
 fgets(str, MAX, stdin);
 
 int len = strlen(str);
-
-// Remove new line character from input string, because `fgets` takes in the whole line, including the newline character at the end.
-str[len] = '\0';
 ```
 
 Now comes the harder logic. How do we know it is a palindrome?
