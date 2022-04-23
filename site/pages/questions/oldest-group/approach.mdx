@@ -1,0 +1,12 @@
+
+# Approach
+
+_Written by Jasper Di Francesco from CSESoc Education._
+
+My approach was similar to finding the maximum value in an array. Firstly we scan in the number of groups, then we iterate through each one, checking if the sum of it's ages is greater than the current maximum.
+
+As we know that ages cannot be negative, we can give the initial maximum a default value of 0.
+
+If the sum of the current group's ages $X$ is greater than the current maxiumum $M$, then we change $M$ to be equal to $X$ and update the group number to be the current group.
+
+As long as we only change $M$ when $X$ is greater than $M$ and not when it is greater than or equal to, then we ensure we always return the lowest group number.
