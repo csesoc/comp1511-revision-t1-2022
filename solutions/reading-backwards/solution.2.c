@@ -1,3 +1,4 @@
+//Written by Simon Nguyen from CSESoc Education
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h> 

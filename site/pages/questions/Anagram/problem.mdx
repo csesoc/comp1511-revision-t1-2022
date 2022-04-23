@@ -1,0 +1,49 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Anagram?
+
+An anagram is a word formed by rearranging the letters of a different word.
+
+Write a program that receives two words from the user, and determine if those two words are an anagram or not.
+
+**Input Format**  
+- The first line of input is a string of max length $N$.
+- The second line of input is also a string of max length $N$.
+
+**Constraints**  
+For all test cases:
+- $0 \leq N \leq 1024$
+- All given words will have lowercase letters only.
+
+**Output Format**  
+* If the two words are anagrams, then the output should be `"Your two words are an anagram!"`.
+* If the two words are not anagrams, then the output should be `"Your two words are not an anagram!"`.
+
+<Callout emoji="💡">
+Hint: You may need to consider the new line character that is created at the end of each string.
+</Callout>
+
+**Example 1**
+
+```
+Input: 
+angel
+glean
+Output: 
+Your two words are an anagram! 
+```
+Explanation: The first word has unique letters 'a', 'n', 'g', 'e', 'l', and the second word also has unique letters 'g', 'l', 'e', 'a', 'n'. Since the two words share the same unique letters, and the same amount of each letter, the two words are an anagram.  
+
+**Example 2**
+
+```
+Input: 
+yummy
+mummy
+Output:
+Your two words are not an anagram!
+```
+Explanation: The first word has unique letters 'y', 'u', 'm', but there are 2 y's and 2 m's. 
+The second word also has the same unique letters of 'y', 'u', 'm', but there is only 1 y and 3 m's. 
+Even though the two words share the same unique letters, they don't share the same amount of each letter, so its impossible for the two words to be an anagram. 
+
