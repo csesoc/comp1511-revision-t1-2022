@@ -20,7 +20,7 @@ fgets(str, MAX, stdin);
 int len = strlen(str);
 ```
 
-*As a side note, `fgets` reads a string until it encounters `\n` (or the `MAX` characters is reached or it reads `EOF`) so if you ran the code locally, you might need to consider the stripping away `\n` if you press the enter key after typing the input. To do this, you would find the index in which the newline was located (which would be `len - 1` because the `strlen` function counts `\n` as a character in the string's length, then override it with a null terminator (would look something like `str[len - 1] = '\0'`.*
+*As a side note, `fgets` reads a string until it encounters `\n` (or the `MAX` characters is reached or it reads `EOF`) so if you ran the code locally, you might need to consider the stripping away `\n` if you press the enter key after typing the input. To do this, you would find the index in which the newline was located (which would be `len - 1` because the `strlen` function counts `\n` as a character in the string's length), then override it with a null terminator (would look something like `str[len - 1] = '\0'`).*
 
 Now comes the harder logic. How do we know it is a palindrome?
 
