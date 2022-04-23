@@ -32,8 +32,11 @@ int main(void) {
 
         // Keep removing the head (i.e. top) of the linked list while
         // new_width is greater than the average current width.
-        //
         // We multiply both sides by current_layers to avoid decimals.
+        //
+        // Note that an empty stack doesn't satisfy this condition
+        // (0 is not less than 0), so we don't need to specifically
+        // handle this case.
         while (current_layers * new_width > current_width) {
             current_width -= head->width;
             current_layers--;

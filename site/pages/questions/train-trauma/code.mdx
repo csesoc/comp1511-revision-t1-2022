@@ -89,7 +89,6 @@ int main(void) {
 // 			if there is no matching station.
 struct Node *name_to_pointer(Node *head, char name[MAX_STRING_LEN]) {
     Node *current = head;
-    Node *result = NULL;
     while (current != NULL) {
         if (strcmp(current->name, name) == 0) {
             return current;
