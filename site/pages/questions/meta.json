@@ -1,10 +1,11 @@
 {
-  "TEMPLATE": "Template",
-  "folder-name": "actual-name",
-  "spongebob": "Mocking Spongebob",
-  "scrambled-scrabble": "Scrambled Scrabble",
-  "best-youtuber": "Best YouTuber",
-  "scissors-paper-rock": "Scissors Paper Rock",
-  "oldest-group": "Oldest Group",
-  "marc-coin": "Marc Coin"
+    "TEMPLATE": "Template",
+    "folder-name": "actual-name",
+    "spongebob": "Mocking Spongebob",
+    "scrambled-scrabble": "Scrambled Scrabble",
+    "best-youtuber": "Best YouTuber",
+    "scissors-paper-rock": "Scissors Paper Rock",
+    "oldest-group": "Oldest Group",
+    "marc-coin": "Marc Coin",
+    "black-friday": "Black Friday Special Sale"
 }
