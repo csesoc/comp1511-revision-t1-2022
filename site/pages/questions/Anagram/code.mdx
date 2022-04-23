@@ -1,8 +1,3 @@
-# Sample Code
-
-[GitHub link](https://github.com/csesoc/comp1511-revision-t1-2022/tree/master/solutions/anagram)
-
-```c
 // Written by Simon Nguyen from CSESoc Education
 #include <stdio.h>
 #include <string.h>
@@ -19,6 +14,8 @@ int main (void) {
     fgets(first_word, MAX_SIZE, stdin);
     fgets(second_word, MAX_SIZE, stdin);
     
+    // Removing newline is necessary if you are entering input via your terminal.
+    // It is not necessary for hackerrank test cases though.
     remove_newline(first_word);
     remove_newline(second_word);
     
@@ -43,7 +40,7 @@ void remove_newline(char word[MAX_SIZE]) {
 }
 
 //Function to check if 2 strings are anagrams. 
-int check_anagram(char first_word[MAX_SIZE], ch 
+int check_anagram(char first_word[MAX_SIZE], char second_word[MAX_SIZE]) {
 
   //Creating 2 arrays (1 for each string) to store the frequency of 
   //characters in each string
@@ -80,4 +77,3 @@ int check_anagram(char first_word[MAX_SIZE], ch
   
   return 1;
 }
-```
