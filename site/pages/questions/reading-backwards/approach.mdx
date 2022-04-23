@@ -26,7 +26,7 @@ fgets(word, MAX_SIZE, stdin);
         * -1 so we dont consider the newline character
         * -1 to account for array indexing starting at 0. 
     * Once we account for the condition above, we are simply swapping the ith character from the start and end of the string.
-        *  `word[i] = word[L - i], where L = N - 2 (L is the last index of array)`.
+        *  `word[i] = word[L - i], where L = N - 2 (L is the last index of the string in array)`.
     * To swap numbers, we need to introduce a 3rd variable called a placeholder. 
 ```c
 void reverse_function(char word[MAX_SIZE]) {
