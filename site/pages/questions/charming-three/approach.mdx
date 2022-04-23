@@ -8,7 +8,7 @@ The complexity of this question can be split into two:
 
 - Understanding the logic of how to order the numbers
 
-- Coding the answer up syntaxically right, with pointers
+- Coding the answer up syntactically right, with pointers
 
 <Callout type="warning" emoji="👾">
   Understanding the logic of how to order the numbers
@@ -33,12 +33,12 @@ Now applying this to the question, we always want to make sure `x` is the smalle
 The challenge part of this question comes to how to write the least comparisons. To do this, I would actually start of by comparing if `z` is smaller than `x`, so `z` always has what we currently see as the largest every time.
 
 <Callout type="warning" emoji="👾">
-  Coding the answer up syntaxically right, with pointers
+  Coding the answer up syntactically right, with pointers
 </Callout>
 
 Now we know the logic behind it all, as in which variables we want to compare and that we need to swap variable values around, how do we code this?
 
-`x`, `y` and `z` are integer pointers and so to access the actual integer value they point to, we need to dereference it. This syntaxically means putting a `*` in front of the variable, so we can compare the values of `x` and `z` like this:
+`x`, `y` and `z` are integer pointers and so to access the actual integer value they point to, we need to dereference it. This syntactically means putting a `*` in front of the variable, so we can compare the values of `x` and `z` like this:
 
 ```c
 if (*x > *z) {
