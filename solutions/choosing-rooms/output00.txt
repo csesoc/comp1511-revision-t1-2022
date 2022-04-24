@@ -1,0 +1,65 @@
+Round 1
+Player 1: 2.666667 points
+Player 2: 2.666667 points
+Player 3: 2.666667 points
+Player 4: 0.000000 points
+Player 5: 0.000000 points
+Player 6: 6.500000 points
+Player 7: 6.500000 points
+Player 8: 6.500000 points
+Player 9: 6.500000 points
+Player 10: 20.000000 points
+Round 2
+Player 1: 6.666667 points
+Player 2: 6.666667 points
+Player 3: 5.575758 points
+Player 4: 0.000000 points
+Player 5: 0.000000 points
+Player 6: 13.590909 points
+Player 7: 13.500000 points
+Player 8: 13.500000 points
+Player 9: 6.500000 points
+Player 10: 20.000000 points
+Round 3
+Player 1: 8.666667 points
+Player 2: 8.666667 points
+Player 3: 7.575758 points
+Player 4: 2.000000 points
+Player 5: 0.000000 points
+Player 6: 13.590909 points
+Player 7: 24.500000 points
+Player 8: 13.500000 points
+Player 9: 6.500000 points
+Player 10: 20.000000 points
+Round 4
+Player 1: 12.666667 points
+Player 2: 12.666667 points
+Player 3: 15.487149 points
+Player 4: 4.088608 points
+Player 5: 0.000000 points
+Player 6: 24.590908 points
+Player 7: 33.250000 points
+Player 8: 20.250000 points
+Player 9: 12.250000 points
+Player 10: 27.750000 points
+Round 5
+Player 1: 16.666668 points
+Player 2: 16.666668 points
+Player 3: 23.398540 points
+Player 4: 6.177216 points
+Player 5: 0.000000 points
+Player 6: 30.924240 points
+Player 7: 39.583332 points
+Player 8: 26.583332 points
+Player 9: 12.250000 points
+Player 10: 27.750000 points
+16.7
+16.7
+23.4
+6.2
+0.0
+30.9
+39.6
+26.6
+12.3
+27.8
