@@ -16,12 +16,12 @@ Clone the repository:
 
 ## Running the site locally
 
-1. Navigate into `/comp1511-revision-t1-2022`
+1. Navigate into `/comp1511-revision-t1-2022/site`
 2. Install packages with `yarn install`
-3. You're good to go! Run `yarn next` to start.
-4. The site can now be accessed via `http://localhost:3000`.
+3. You're good to go! Run `yarn next` to start the dev server.
+4. The site can now be viewed at `http://localhost:3000`.
 
-Any changes you make to the site will be reflected instantly on save (i.e. writing solutions).
+Any changes you make to the codebase will be reflected on the page instantly on save (i.e. writing solutions).
 
 ## Formatting and linting
 
