@@ -1,0 +1,14 @@
+# Approach
+
+_Written by Isaiah Iliffe from CSESoc Education_
+
+A very short solution involves keeping track of $x$, the number Joseph's finger
+is currently over, initially 1, and treating each character as follows:
+
+- `L`: decrement $x$ by 1.
+- `R`: increment $x$ by 1.
+- `U`: decrement $x$ by 3.
+- `D`: increment $x$ by 3.
+- `P`: print the digit $x$.
+
+Alternatively, a 2D array representing the keypad will do the trick.
