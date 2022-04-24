@@ -1,0 +1,27 @@
+# Approach
+
+_Written by Westley Lo from CSESoc Competitions_
+
+We first want to store the prices of Bob and Sue's items so we can pick out items later.
+Since we are given the number of items each have, we can use them to make two separate arrays.
+
+The maximum number of items that can be picked is equal to:
+
+```
+minimum(Bob's number of items, Sue's number of items) * 2
+```
+
+Since the number of items we can pick is dependent on who has the fewer items in their array, that's our first priority,
+**figure out which of the two array has fewer items, and how many items are in there.**
+
+Once we figure out which is the smaller array and its size (We will call it `N`), we then want to make an integer variable `total_price` and sum up all the prices in the smaller array.
+
+we then want to pick out the `N` most expensive items from longer array to maximise the total price of the haul.
+We can do that by either:
+
+1. Looping through the larger array `N` times, find the largest element, add it to `total_price`, and replace that element with -1.
+2. Sort the whole array and pick out the `N` biggest items from there and add it to `total_price`
+   Whichever is more comfortable.
+
+Once we done that, we can just print `total_price` and we will be done!
+

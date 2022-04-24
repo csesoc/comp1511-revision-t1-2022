@@ -1,0 +1,62 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Black Friday Special Sale
+
+Bob and Sue have gone to a special store during Black Friday Sale, a special store that separates couples! Bob ended in one section, and Sue ended up in the other section with a wall in between, so that they can't pass items to each other.
+
+Just when they're about to checkout however, they suddenly both notice a giant banner on the wall that announces a sweet deal - if both people buy the same amount of items, they can get 99% off. Hurriedly, Bob and Sue scramble on the phone to figure out what items they should buy so they can get the maximum discount. Given a list of item prices, output the desired sum of prices of all items they should buy.
+
+**Input Format**  
+First line consists two numbers, the number of items Bob and Sue each have. 
+e.g 
+```
+5 10
+```
+This means Bob has 5 items, and Sue has 10.
+
+Next two lines are space separated numbers. The first of these lines represent prices of each item that Bob has on him, the second line is the same but for Sue. e.g
+```
+5 10 9 8 1
+10 200 5 150 1 50 20 100 70 10
+```
+
+**Constraints**  
+1. All the item prices will be positive integers.
+2. Bob and Sue will each have at least 1 item and at most 500 items.
+3. The price of each individual item will be less than 1,000,000 dollars.
+
+**Output Format**  
+An integer printed to stdout.
+
+**Sample Input 0**
+
+```
+5 10
+5 10 9 8 1
+10 200 5 150 1 50 20 100 70 10
+```
+**Sample Output 0**
+```
+603
+```
+**Explanation 0**
+
+Your job is to essentially pick out items from each side so that
+
+1. Both have the same amount of items on both side and
+2. The combined price is the highest possible.
+
+And print the total price to stdout.
+
+So for this example case, you will print 603 because you pick ```5 10 9 8 1``` from Bob's list of items, and ```200 150 50 100 70``` from Sue's list of items.
+
+**Sample Input 1**
+```
+10 10
+9 3 2 1 7 6 4 10 8 5
+8 7 4 6 9 1 10 5 3 2
+```
+**Sample Output 1**
+```
+110
+```
