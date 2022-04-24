@@ -1,0 +1,154 @@
+# Choosing Rooms
+
+N players are playing a game. To win points, each player has to choose one of four rooms to enter. Each room has its own rule as follows:
+
+Room 1: The points in room 1 will be evenly distributed to every player I his room.
+
+Room 2: The points in room 2 will be distributed according to the ratio of each player's total points they earned in previous rounds. If no one has any points, then the points are equally distributed. However, if there are less than three players in this room, no point will be given.
+
+Room 3: The points in room 3 will be evenly distributed to every player in this room, with each player get a number of extra points equal to the number of players in this room. However, if there are more than four players in this room, no one will get any points.
+
+Room 4: The points in room 4 will be evenly distributed to every player in this room. The player with the highest total points will get an extra 5 points, along with the second highest get 4 points, and the third highest get 3 points and so on. If two players have the same score, they would both get points, so two players tying for first will get 5 points, then the player after that would get 3 points, etc. However, if there are a prime number of players in this room, no one will get any points.
+
+Every player has 0 points at the start of the game. There will be 5 rounds in this game. 8, 10, 10 and 15 points are allocated in these 4 rooms respectively. Write a programme to allocate the points and rank each player. Calculations are rounded to one decimal place if necessary.
+
+
+**Input Format**  
+The first line of input will be the total number of players participating in the game.
+
+The next 5x8 lines represent the 5 rounds of the game. In each round (8 lines), there are 4 pairs of 2 lines - the first line describes how many players headed into that room, and the second line lists out the player numbers of people in that room.
+
+For example, in the input below:
+
+```
+11
+4
+1 2 3 4
+3
+5 6 7
+2
+8 9
+2
+10 11
+2
+5 9
+3
+4 7 11
+2
+1 10
+4
+2 3 6 8
+... repeats for rounds 3, 4 and 5
+```
+
+The input describes this state:
+
+```
+Round 1
+Room 1: Player 1, Player 2
+Room 2: Player 3, Player 4, Player 5, Player 6
+Room 3: Player 7, Player 8
+Room 4: Player 9, Player 10, Player 11
+```
+
+If no one is in a room, this is indicated by the pair:
+
+```
+0
+0
+```
+
+**Constraints**  
+$8 \le N \le 30$.
+
+**Output Format**  
+The output will be each player's score, in player-number order. Player 1's score would occupy the first line, then Player 2's would occupy the second, and so forth.
+
+```
+4
+4
+2.5
+2.5
+2.5
+2.5
+7
+7
+5
+5
+5
+```
+
+**Examples**
+
+_Table layout_
+
+| Input      | Output     | Explanation             |
+| ---------- | ---------- | ----------------------- |
+| `abcd`     | `ABCD`     | All letters capitalised |
+| `1234`     | `1234`     | Numbers remain the same |
+| `abcd1234` | `ABCD1234` | All letters capitalised |
+
+_Code block_
+
+**Example 1**
+
+Input:
+
+```
+10
+3
+1 2 3
+2
+4 5 
+4
+6 7 8 9
+1
+10
+2
+1 2
+4
+3 4 5 6
+2
+7 8
+2
+9 10
+4
+1 2 3 4
+2
+5 6
+1
+7
+3
+8 9 10
+2
+1 2
+3
+3 4 5
+1
+6
+4
+7 8 9 10
+2
+1 2
+3
+3 4 5
+3
+6 7 8
+2
+9 10
+```
+
+Output:
+
+```
+16.7
+16.7
+23.4
+6.2
+0.0
+30.9
+39.6
+26.6
+12.3
+27.8
+```

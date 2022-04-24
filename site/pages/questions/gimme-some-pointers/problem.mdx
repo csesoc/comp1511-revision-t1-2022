@@ -1,0 +1,35 @@
+# Gimme Some Pointers!
+
+You're in the middle of a COMP1511 tutorial, covering pointer syntax. The tutor is going through referencing and dereferencing with an example variable `c`, and asking the class for answers. You've definitely prepared for this class, and you know that `&` is used to reference the variable (make a pointer of a variable) and that `*` is used to dereference it (refer to the value where the pointer is at). For example, `&c` technically refers to a pointer to `c`.
+
+The tutor is very keen, and wants everyone to answer at least one question. It'll be your turn soon - can you make a program that gives the right answer?
+
+**Input Format**  
+The first line of input contains an integer $N$, the number of characters behind the variable `c`.
+
+The second line of input contains a string of $N$ characters, containing only `&` and `*`, that represent the characters behind `c`.
+
+**Constraints**  
+For all test cases:
+
+$1 \le N < 1000$.
+
+You are guaranteed that the string contains *only* `&` and `*`, and no other characters.
+
+**Output Format**  
+You are to output a human-readable version of the variable represented by the input followed by our variable `c`. For example:
+
+- An empty string should just output `c`, since `c` just represents the value `c`.
+- `&` should output `pointer to c`, since `&c` does represent a pointer to `c`.
+- `&&&` should output `pointer to pointer to pointer to c`, since by having 3 `&`s we've referenced `c` 3 times.
+- `*&&` should output `pointer to c`, since working from right to left in `*&&c`, we reference `c`, reference it again, then dereference it to get it back down to one total reference.
+
+If, at any point, we dereference `c` itself (which shouldn't be possible), you should output `not possible`. An example of such a case would be `*`, which represents `*c`.
+
+**Examples**
+
+| Input      | Output         | Explanation              |
+| ---------- | -------------- | ------------------------ |
+| `&`        | `pointer to c` | `c` is referenced once   |
+| `<empty>`  | `c`            | Nothing happens to `c`   |
+| `*`        | `not possible` | Cannot dereference `c`   |
