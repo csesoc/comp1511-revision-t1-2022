@@ -1,0 +1,70 @@
+# Approach
+
+_Written by Jason Liu from CSESoc Competitions_
+
+In this question, we're asked to find the final height of a tower in which layers are added and destroyed. Let's consider what our code has to be able to do:
+
+- Store the current layers & calculate current average width
+- Add/remove layers of the tower
+
+## Store the current layers & calculate current average width
+
+To keep track of the layers on the tower, we could use either an array or a linked list. 
+
+For the average width, it is possible to calculate the average width every time we need it. However, a cleaner (and less error prone) method would be to separately keep track of the total height of the current tower, and the current number of layers, and update this as layers are added and removed.
+
+## Add/remove layers of the tower
+
+Observe that the only additions and removals we ever have to handle occur at the top of the tower. Even though the diagrams make it seem like we need to remove things which are second from the top when layers are destroyed, we can actually delete all these layers from the top before adding the new layer.
+
+With this noted, we can see that it's never the case that we have to insert or remove anything in the middle or bottom of the tower. This matches the behaviour of an ADT that we're familiar with - a stack!
+
+## Implementation
+
+There are two possible ways we might want to implement a stack - via an array or a linked list. I'll cover the linked list implementation, since it's a little more challenging but alsomore instructive. The array implementation is left as an exercise to the reader.
+
+First, we need our standard linked list struct. Each node will represent a layer, and the data will be the width of the layer.
+
+```c
+typedef struct Node {
+    int width;
+    struct Node *next;
+} Node;
+```
+
+We'll then declare the other variables to store the current width and layer count as discussed previously, and read the number of layers.
+
+```c
+Node *head = NULL;
+int current_width = 0;
+int current_layers = 0;
+
+int max_layers;
+scanf("%d", &max_layers);
+```
+
+We then begin iterating through the list of blocks in the order that they're given, which is the order they're added to the tower. For each new block, we first scan in its width. We then want to remove blocks from the top of the tower (i.e. the head of the linked list) until the new block will be stable, updating the current total width and layer count as necessary. An interesting way to avoid division is by multiplying both sides by the layer count - though be aware of integer overflow when attempting this.
+
+```c
+while (current_layers * new_width > current_width) {
+    current_width -= head->width;
+    current_layers--;
+    head = head->next;
+}
+```
+
+If we were concerned about memory leakage, we would also want to free the node that was just deleted at this stage.
+
+After this, it's just a simple matter of adding the new block as a new head node, effectively adding it to the top of the stack.
+
+```c
+Node *new_node = malloc(sizeof (Node));
+new_node->width = new_width;
+new_node->next = head;
+head = new_node;
+
+current_width += new_width;
+current_layers++;
+```
+
+After all the layers have been added, printing the answer is a simple matter of printing `current_layers`.

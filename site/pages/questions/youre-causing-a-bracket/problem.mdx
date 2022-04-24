@@ -1,0 +1,50 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# You're causing a bRACKET!
+
+Brian loves to code! But he can be careless at times, forgetting to put a closing brackets to his code.
+
+Help Brian out!
+
+Read from stdin and determine whether the brackets are "balanced" - in the sense that every opening bracket is matched by an appropriately-placed closing bracket of the same type.
+
+**Input Format**  
+Three different types of brackets are used: round brackets `()`, square brackets `[]` and curly brackets `{}`.
+
+Input will be a string containing brackets.
+
+**Constraints**  
+Ignore characters other than brackets.
+
+You can assume the sting contains at most `4096` characters.
+
+**Output Format**  
+If the brackets are balanced, print `Yes, balanced`.
+
+If the brackets are not balanced, print `No, not balanced`.
+
+**Examples**
+
+**Example 0**
+
+```
+Input: ([{}()])([]){}
+Output: Yes, balanced
+Explanation: All opening brackets have a matching closing bracket
+```
+
+**Example 1**
+
+```
+Input: ({(()([])])
+Output: No, not balanced
+Explanation: Each closing bracket does not have a corresponding opening bracket.
+```
+
+**Example 2**
+
+```
+Input: #include <stdio.h> int main (void) { printf("hello world\n"); };
+Output: Yes, balanced
+Explanation: Characters that are not brackets are ignored. Each opening bracket has a corresponding closing bracket.
+```

@@ -1,0 +1,92 @@
+# Approach
+
+_Written by Simon Nguyen from CSESoc Education_
+
+The aim of the problem is to compare the frequency of specific characters that appears in both words. If both words have the same frequency of certain characters, then the two words are an anagram! 
+
+To tackle this problem, there are 4 steps:
+
+1. Store the two input words which are strings into their own arrays. See `main(void)`.
+    * To store a string in an array, create an array of type `char` that has the size of the maximum string length input. 
+    * Once you create your array, use `fgets()` to store the string input into the array. 
+```c
+
+char first_word[MAX_SIZE];
+fgets(first_word, MAX_SIZE, stdin);
+char second_word[MAX_SIZE];
+fgets(second_word, MAX_SIZE, stdin);
+
+```
+
+Note: `fgets()` will store the string from input + newline character, so we must get rid of the new line character to avoid invalid indexing. 
+
+
+
+2. Create a helper function to remove the new line character from the end of a string. See `remove_newline()`.
+    * To remove a newline character from end of string, we must replace it with a null terminating character.
+    * The index in which the newline character lies in the array at the end of each string, is given by `strlen(string_array) - 1`.
+        * Note:
+            * `strlen()` will return length of string + newline character 
+            * -1 allows us to get the index of newline character since indexing of array starts at 0.
+    * Hence, to replace the newline character with a null terminating character, we do:
+```c
+void remove_newline(char word[MAX_SIZE]) {
+    int len = strlen(word) - 1;
+    word[len] = '\0';
+}
+
+```
+
+
+3. Check if the two words/strings are an anagram by comparing the frequency of characters that appears in both words. See `check_anagram()`.
+    * To store the frequency of characters that appear in both words, create 2 arrays (1 for each string) of length 26. 
+    * The array's index will represent the characters in the alphabet.
+    * For example:
+        * `alpha_first[0]` will store how many times `'a'` appears in first string.
+        * `alpha_first[1]` will store how many times `'b'` appears in first string. 
+    
+```c
+int alpha_first[26] = {0};
+int alpha_second[26] = {0};
+```
+
+    * To calculate the frequency of characters in each string, we need to loop through each character in the string, until the end of the string, using a `while()` loop. 
+    * Inside the `while()` loop, we need to increment the number of times that character has appeared in the string, represented by:
+
+```c
+alpha_first[first_word[i] - 'a']++;
+```
+    * Note:
+        * `first_word[i]` gives us the character of a string at index `i`.
+        * `first_word[i] - 'a'` gives us the position of the string's character in the alphabet.
+        * For example, `'c' - 'a'` will return 2, which is the 3rd index of the `alpha_first[]` array, representing `c` as the 3rd letter in the alphabet.
+            * `c` has an ASCII value of 99.
+            * `a` has an ASCII value of 97.
+        
+    * Calculate the frequency of characters that appear in second string by modifying the variable names above. 
+
+
+```c
+int i = 0;
+while (i < strlen(second_word)) {
+    alpha_second[second_word[i] - 'a']++;
+    i++;
+}
+```
+    * Lastly, compare the frequency of each letter in the alphabet in the 2 strings.
+    * If the frequency of letters do not match up, then the two words are not an anagram!
+
+```c
+i = 0;
+while (i < 26) {
+    if (alpha_first[i] != alpha_second[i]) {
+        //return 0 if frequency of letters dont match up
+        return 0;
+    } else {
+        i++;
+    }
+
+}
+//return 1 if frequency of letters match up
+return 1;
+```

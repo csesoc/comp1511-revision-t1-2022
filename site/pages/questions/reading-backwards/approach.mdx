@@ -1,0 +1,48 @@
+# Approach
+
+_Written by Simon Nguyen from CSESoc Education_
+
+The aim of the problem is to reverse a string. To reverse a string, there are 3 steps: Storing the string input into an array, creating a function to reverse the string, and printing the reversed string. 
+
+1. Storing the string input in an array. See `main(void)`.
+    * To store a string in an array, create an array of type `char` that has the size of the maximum string length input. 
+    * Once you create your array, use `fgets()` to store the string input into the array. 
+```c
+
+char word[MAX_SIZE];
+fgets(word, MAX_SIZE, stdin);
+
+```
+2. Create a helper function to reverse the string. See `reverse_function()`.
+    * When we reverse a string, the first character becomes the last character, the second character becomes the second last character, and so on. 
+    * Hence, for a string of length N, we need to create a function that swaps the 1st and Nth character, the 2nd and (N-1)th character, until the (N/2)th swapped is reached.
+        * For strings of even length, the (N/2)th swap will swap the 2 middle characters
+        * For strings of odd length, the (N/2)th swap will swap the 2 adjacent characters to the middle character. 
+    * How do you find the length N of a string? Use `strlen(array_name_of_string)`.
+        * Note strlen() returns an int, where it will calculate length of string + new_line character from fgets().
+        * For example, if the user inputs `Hello` and presses enter, `strlen()` will return 6 (5 for length of string + 1 for newline character).
+    * Hence for an ith element in the string array, we want to swap it with the (N - 2 - i)th element in same array. 
+        * `N - 2 - i = N - 1 - 1 - i`
+        * -1 so we dont consider the newline character
+        * -1 to account for array indexing starting at 0. 
+    * Once we account for the condition above, we are simply swapping the ith character from the start and end of the string.
+        *  `word[i] = word[L - i], where L = N - 2 (L is the last index of the string in array)`.
+    * To swap numbers, we need to introduce a 3rd variable called a placeholder. 
+```c
+void reverse_function(char word[MAX_SIZE]) {
+    int i = 0;
+    int holder;
+    while (i < strlen(word)/2) {
+        holder = word[i];
+        word[i] = word[strlen(word) - 2 - i];
+        word[strlen(word) - 2 - i] = holder;
+        i++;
+        
+    }
+     
+}
+```
+
+
+3. Print the reversed string. See `main(void)`.
+    * To print a string, use `printf(“%s”, array_name_of_string)`, where `%s` is the format specifier for a string.

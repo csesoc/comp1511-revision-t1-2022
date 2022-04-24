@@ -1,0 +1,29 @@
+# Approach
+
+_Written by Isaiah Iliffe from CSESoc_
+
+This question likely requires some problem solving on paper before starting to code.
+
+Firstly, if two adjacent given percentages are out of order, then obviously
+it is impossible to satisfy the requirements.
+
+Otherwise, after trying a few cases, you might think about when it is
+still impossible to make everything add to $100$. In the final sample case,
+we see that the lowest possible sum we could achieve while respecting the
+non-decreasing requirement is $30 + 30 + 30 + 20 = 110$, by going from right to left and setting each
+unknown percentage to whatever is on its immediate right (or 1 if there is nothing on its right),
+since this keeps each value as low as possible.
+
+Similarly, we can achieve the highest possible sum by going from left to right and setting each
+unknown percentage to whatever is on its left (or 100 if there is nothing on its left).
+
+It's clear that if the highest possible sum is less than 100, or if the lowest
+possible sum is more than 100, then there is no valid assignment.
+Interestingly, if neither of these is true, it turns out that there must be a valid assignment!
+
+This is because we can gradually change a solution with highest possible sum to
+a solution with lowest possible sum by going from right to left and decreasing unknown percentages
+whereever possible. It's not hard to why this is true, and if we only decrease percentages
+by one at a time, then we must hit a sum of 100 somewhere along the way.
+
+For a more compact description of the whole procedure, see the sample code.

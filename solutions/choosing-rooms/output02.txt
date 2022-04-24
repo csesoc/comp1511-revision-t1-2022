@@ -1,0 +1,64 @@
+People in room 3: 1
+Round 1
+Player 1: 4.000000 points
+Player 2: 4.000000 points
+Player 3: 0.000000 points
+Player 4: 0.000000 points
+Player 5: 11.000000 points
+Player 6: 0.000000 points
+Player 7: 0.000000 points
+Player 8: 0.000000 points
+Player 9: 0.000000 points
+People in room 3: 2
+Round 2
+Player 1: 14.000000 points
+Player 2: 11.000000 points
+Player 3: 8.000000 points
+Player 4: 0.000000 points
+Player 5: 18.000000 points
+Player 6: 0.000000 points
+Player 7: 0.000000 points
+Player 8: 0.000000 points
+Player 9: 0.000000 points
+People in room 3: 5
+Round 3
+Player 1: 22.000000 points
+Player 2: 11.000000 points
+Player 3: 8.000000 points
+Player 4: 0.000000 points
+Player 5: 18.000000 points
+Player 6: 0.000000 points
+Player 7: 0.000000 points
+Player 8: 0.000000 points
+Player 9: 0.000000 points
+People in room 3: 3
+Round 4
+Player 1: 26.000000 points
+Player 2: 15.000000 points
+Player 3: 8.000000 points
+Player 4: 6.333333 points
+Player 5: 18.000000 points
+Player 6: 6.333333 points
+Player 7: 6.333333 points
+Player 8: 0.000000 points
+Player 9: 0.000000 points
+People in room 3: 2
+Round 5
+Player 1: 26.000000 points
+Player 2: 19.000000 points
+Player 3: 8.000000 points
+Player 4: 10.333333 points
+Player 5: 25.000000 points
+Player 6: 6.333333 points
+Player 7: 13.333333 points
+Player 8: 0.000000 points
+Player 9: 0.000000 points
+26.0
+19.0
+8.0
+10.3
+25.0
+6.3
+13.3
+0.0
+0.0
