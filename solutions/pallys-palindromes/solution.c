@@ -10,17 +10,19 @@ int main(void) {
 
     int len = strlen(str);
 
-    // remove new line character from input string
-    str[len] = '\0';
+    int i = 0;
 
-    for (int i = 0; i < len; i++) {
-        if (tolower(str[i]) != tolower(str[len-i-1])) {
+    // Keep comparing characters while their mirrored position is the same
+    while (i < len) {
+        if (tolower(str[i]) != tolower(str[len - i - 1])) {
             printf("String is not a palindrome\n");
             // early return if not a palindrome
             return 0;
         }
+        i++;
     }
 
+    // Otherwise, it must be a palindrome
     printf("String is a palindrome\n");
     return 0;
 }

@@ -1,0 +1,28 @@
+# Approach
+
+_Written by Max Xue from CSESoc Education_
+
+Loop through every combination of three coins that can be made and see if any combination of the coins results in the target price.   
+
+```c
+int sumCoins(int price, int coins_count, int* coins) {
+    // Go through every possible combination of 3 coins
+    // and see if any of them add up to the exact change required
+    int i = 0;
+    while (i < coins_count) {
+        int j = i + 1;
+        while (j < coins_count) {
+            int k = j + 1;
+            while (k < coins_count) {
+                if (coins[i] + coins[j] + coins[k] == price) {
+                    return 1;
+                }
+                k++;
+            }
+            j++;
+        }
+        i++;
+    }
+    return 0;
+}
+```

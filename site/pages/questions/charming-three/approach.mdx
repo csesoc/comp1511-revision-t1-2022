@@ -1,0 +1,67 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Approach
+
+_Written by Winnie Zhang from CSESoc Education_
+
+The complexity of this question can be split into two:
+
+- Understanding the logic of how to order the numbers
+
+- Coding the answer up syntactically right, with pointers
+
+<Callout type="warning" emoji="👾">
+  Understanding the logic of how to order the numbers
+</Callout>
+
+For any logical problem, drawing it out helps a lot! With this, we can think of the main logic as seeing if one number is bigger than another (resulting in yes or no answers).
+
+When I think of yes or no answers, I like to turn to a flow chart:
+
+- if the number is bigger, do *this*
+
+- otherwise, do *that*
+
+Now applying this to the question, we always want to make sure `x` is the smallest, `y` is the next smallest and `z` is the largest. So the first step to start that off is to ask:
+
+**Is `x` smaller than `y`?**
+
+- If yes, you can check if `x` is also smaller than `z`
+
+- If no, swap `x` and `y` so `x` is now the smallest. Then you could check if `x` is smaller than `z` and so on
+
+The challenge part of this question comes to how to write the least comparisons. To do this, I would actually start of by comparing if `z` is smaller than `x`, so `z` always has what we currently see as the largest every time.
+
+<Callout type="warning" emoji="👾">
+  Coding the answer up syntactically right, with pointers
+</Callout>
+
+Now we know the logic behind it all, as in which variables we want to compare and that we need to swap variable values around, how do we code this?
+
+`x`, `y` and `z` are integer pointers and so to access the actual integer value they point to, we need to dereference it. This syntactically means putting a `*` in front of the variable, so we can compare the values of `x` and `z` like this:
+
+```c
+if (*x > *z) {
+    // etc.
+}
+```
+
+The next harder part is the actual swapping of the values held by the pointers. We may have seen this in a lab before, but let us revisit what it looks like through a helper function:
+
+```c
+void swap_nums(int *a, int *b) {
+    // We want `a` = `b` and `b` = `a`
+
+    // Create a temporary integer `tmp` to store the current value of `a`
+    int tmp = *a;
+
+    // Now let `a` = `b` but remember to dereference the pointer when we are dealing with the actual integers they are pointing to
+    // You can see why we created `tmp`, the `a` value is overridden here
+    *a = *b;
+
+    // As we saw, the `a` value was overridden above
+    // Luckily, `tmp` had the original `a` value so we can let `b` = `tmp`
+    // `tmp` does not need to be dereferenced because we defined it as `int tmp` not `int *tmp`
+    *b = tmp;
+}
+```

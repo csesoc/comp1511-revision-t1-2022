@@ -1,0 +1,155 @@
+# Sample Code
+
+```c
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+typedef struct stack *Stack;
+
+// Define the stack structure itself, the stack structure in this case 
+// may have a size and a top node (which is the head)
+struct stack {
+    int size;
+    struct node *top;
+};
+
+// Define each element of a stack as a node
+struct node {
+    int data;
+    struct node *next;
+};
+
+Stack stack_create(void);
+void stack_push(Stack s, int item);
+int stack_pop(Stack s);
+int stack_size(Stack s);
+void stack_free(Stack s);
+
+int main() {
+    Stack bracketStack = stack_create();
+
+    int curr_bracket = getchar();
+
+    while (curr_bracket != EOF) {
+        if (curr_bracket == '{' || curr_bracket == '[' || curr_bracket == '(') {
+            
+            stack_push(bracketStack, curr_bracket);
+
+        } else if (curr_bracket == '}' || curr_bracket == ']' || curr_bracket == ')') {
+            
+            if (stack_size(bracketStack) == 0) {
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;
+            }
+            
+            int popped_bracket = stack_pop(bracketStack);
+            
+            if ((curr_bracket == '}' && popped_bracket != '{') ||
+                (curr_bracket == ')' && popped_bracket != '(') ||
+                (curr_bracket == ']' && popped_bracket != '[')) {
+
+                printf("No, not balanced");
+                stack_free(bracketStack);
+                return 0;                 
+            }
+        }
+        curr_bracket = getchar();
+    }
+
+    // Check if the stack is empty or not, to handle that edge case.
+    // This ensures that every opening bracket had a matching closing bracket.
+    if (stack_size(bracketStack) == 0) {
+        printf("Yes, balanced");
+    } else {
+        printf("No, not balanced");
+    }
+
+    // Free the Stack to avoid memory leaks.
+    stack_free(bracketStack);
+
+    return 0;
+}
+
+
+// If we are creating the stack what will we return and what will be 
+// the input?
+Stack stack_create(void) {
+    //Allocate some memory to the stack structure
+    struct stack *new_stack = malloc(sizeof(struct stack));
+    
+    //Check that there was enough memory to create the stack structure
+    if (new_stack == NULL){
+        printf("There was not enough memory to malloc\n");
+        exit(1);
+    }
+    
+    //TODO: Initialise the stack that was created 
+    new_stack->size = 0;
+    new_stack->top = NULL;
+    
+    return new_stack;
+}
+
+// TODO: Function to push an item onto the stack, what are the 
+// inputs and outputs?
+void stack_push(Stack s, int item) {
+    //Allocate some memory for the new item that you will push on
+    struct node *new_node = malloc(sizeof(struct node));
+    //Check if there is enough memory to make a new node
+    /*if (new_node == NULL) {
+        printf("There is not enough memory to create a node.\n");
+        exit(1);
+    }*/
+    //Initialise the new node
+    new_node->data = item;
+    new_node->next = s->top;
+    
+    //Correct the stack by changing the head and size
+    s->size = s->size + 1;
+    s->top = new_node;
+}
+
+// Function to pop off the stack, so we will be returning the number
+// that was popped off and giving the argument of the stack from which to pop
+int stack_pop(Stack s) {
+    // TODO: Boundary case: what happens if the stack is empty? This means
+    // there is nothing to pop off
+    if (s->size == 0) {
+        printf("There is nothing to pop off the stack, stack is empty\n");
+        return 1;
+    }
+    
+    // TODO: change the top node in the stack to prepare for popping the 
+    // head off
+    struct node *popped_head = s->top;
+    int popped_number = popped_head->data;
+    s->top = s->top->next;
+    s->size = s->size - 1;
+
+    // TODO: Deallocate the memory that was occupied by the node you are popping
+    free(popped_head);
+    return popped_number;
+}
+
+// Function to quickly check the size of the stack
+int stack_size(Stack s) {
+    // What should we return to give the size of the stack?
+    return s->size;
+};
+
+// Function to destroy the whole stack, output is nothing since you are 
+// destroying and input is the stack which you want to destroy
+void stack_free(Stack s){
+    //TODO: condition for traversing though the list to destroy?
+    while (s->size != 0){
+        stack_pop(s);
+    }
+    //TODO: Now that all the nodes are freed and deallocated, need 
+    // to deallocate the actual stack structure
+    free(s);
+}
+
+```

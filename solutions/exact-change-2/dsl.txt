@@ -1,0 +1,5 @@
+integer(p)
+integer(n)
+array(integer, coins_array, n, multi)
+function(integer, sumCoins, integer price, integer_array coins)
+invoke(integer, result, sumCoins, p, coins_array)

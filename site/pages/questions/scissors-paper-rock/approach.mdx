@@ -11,9 +11,9 @@ Let's break down what we need to do, then step through each task.
 - If they are, check who won for each turn/round
 - Print the winner
 
-## Miscallaneous style
+## Miscellaneous style
 
-To improve code clarity, we define constants for commonly used character/numbers in the header, and a struct for player data.
+To improve code clarity, we define constants for commonly used character/numbers in the header, and a struct for player data and valid moves.
 
 ```c
 #define SCISSORS 'S'
@@ -21,15 +21,21 @@ To improve code clarity, we define constants for commonly used character/numbers
 #define ROCK 'R'
 #define MAX_TURNS 3
 // Store moves in char array of length 6.
-// Why 6: Array length includes turns (T), spaces between turns (S),
-// AND the null terminator (\0).
-// | T | S | T | S | T | \0 |
-#define MAX_LENGTH 6
+// Why 7: Array length includes turns (T), spaces between turns (S),
+// the EOF character (\n) AND the null terminator (\0).
+// | T | S | T | S | T | \n | \0 |
+#define MAX_LENGTH 7
 
 struct player
 {
     int points;
     char moves[MAX_LENGTH];
+};
+
+struct moves_valid
+{
+    bool p1;
+    bool p2;
 };
 ```
 
@@ -41,18 +47,10 @@ We extract the steps with lengthy logic to separate functions with appropriate n
 
 ## Scan in player moves
 
-To scan in strings, we use the `fgets()` function in `<stdio.h>`. Between each `fgets`, we clear the input buffer using `fflush(stdin)` so the next `fgets` doesn't read the null terminator from the previous string.
-
-<Callout type="warning" emoji="⚠️">
-  `fflush(stdin)` is not recommended since its behaviour is not guaranteed and
-  varies between compilers. However, as it works here it's fine. See the
-  relevant [Stack Overflow
-  answer](https://stackoverflow.com/questions/2979209/using-fflushstdin?rq=1).
-</Callout>
+To scan in strings, we use the `fgets()` function in `<stdio.h>`.
 
 ```c
 fgets(player1.moves, sizeof(player1.moves), stdin);
-fflush(stdin);
 fgets(player2.moves, sizeof(player2.moves), stdin);
 ```
 
@@ -86,12 +84,13 @@ _Why use the array indices 0, 2 and 4?_ Recall that after reading the input in u
 ```c
 T = player's move on the turn
 S = space specified in input format
+\n = EOF character
 \0 = null terminator indicating end of string
 
 
-| 0 | 1 | 2 | 3 | 4 | 5  |
---------------------------
-| T | S | T | S | T | \0 |
+| 0 | 1 | 2 | 3 | 4 | 5  | 6  |
+-------------------------------
+| T | S | T | S | T | \n | \0 |
 ```
 
 The relevant array indices for turns 1, 2, 3 are `[0]`, `[2]` and `[4]`.
