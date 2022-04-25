@@ -1,18 +1,42 @@
 # Approach
 
-_Written by [person name] from [society name]_
+_Written by Hanyuan Li from CSESoc Competitions_
 
-Explanation of your approach goes here.
+The question itself isn't too difficult to wrap your head around, the main difficulty
+is in the implementation. Below are some things to keep in mind as you are implementing
+your solution:
+
+## Finding whether a number is prime or not
+
+From Wikipedia:
+
+> A **prime number** (or a **prime**) is a natural number greater than 1 that is not a product of two smaller natural numbers.
+
+In order to figure out whether a number is prime or not, we can check whether it's
+divisible by all natural numbers smaller than it (except for 1). We can do that with
+a `while` loop from 2 all the way up to our target number, and use the `%` operator
+to check for the modulus (or "remainder") when we divide our target number by any
+smaller number.
+
+## Room 2 point splitting
+
+In Room 2, points are split based on the amount of points each player has *already won*.
+This means you need to keep track of everyone's points throughout the game, as that
+information becomes important once players step into that room specifically (and when
+we output the scores for each player). In order to calculate each player's specific
+share of points, we can calculate the portion of points they're supposed to get by
+dividing their score by the sum of the scores of every player that stepped into the room.
+
+## Rounding
+
+In C, the `round` function exists to help you round a floating-point integer to a
+certain number of decimal places. It is located in the `<math.h>` library, so you
+will need to `#include` that at the top of your program.
+
+`round` takes two arguments, your floating-point variable and the number of digits
+you want to round to. For example:
 
 ```c
-// Sample code goes here. Feel free to break your code up into parts
-// throughout your explanation!
-
-int main(void)
-{
-    printf("Hello World!")
-
-    return 0;
-}
-
+round(1.444, 2) // becomes 1.44
+round(1.75, 1)  // becomes 1.8
 ```

@@ -1,6 +1,4 @@
 {
-  "TEMPLATE": "Template",
-  "folder-name": "actual-name",
   "spongebob": "Mocking Spongebob",
   "scrambled-scrabble": "Scrambled Scrabble",
   "best-youtuber": "Best YouTuber",
@@ -18,5 +16,6 @@
   "keypad": "Keypad",
   "nth-highest-mark": "Nth Highest Mark",
   "reading-backwards": "Reading Backwards",
-  "Anagram": "Anagram"
+  "Anagram": "Anagram",
+  "black-friday": "Black Friday Special Sale"
 }

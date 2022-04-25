@@ -1,3 +1,5 @@
+// Written by Hanyuan Li from CSESoc Competitions
+
 #include <stdio.h>
 
 #define MAX_LENGTH 1000

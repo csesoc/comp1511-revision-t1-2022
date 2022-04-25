@@ -1,1 +1,1 @@
-not possible
+pointer to pointer to pointer to pointer to pointer to pointer to pointer to pointer to pointer to pointer to c

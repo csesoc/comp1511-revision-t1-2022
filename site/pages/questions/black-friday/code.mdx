@@ -1,0 +1,81 @@
+# Sample Code
+
+[GitHub link](https://github.com/csesoc/comp1511-revision-t1-2022/blob/master/solutions/black-friday/solution.c)
+
+```c
+// Full sample code goes here.
+// Written by Westley Lo from CSESoc Competitions
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void swap(int *num, int *num2);
+void bubbleSort(int a[], int lo, int hi);
+void sort(int array[], int newer[], int size);
+
+int main(void) {
+    // Integer pointers, you can point them to an integer array.
+    int *smaller_array, *larger_array;
+    int bob_item_count, sue_item_count, smaller_array_size, larger_array_size;
+
+    // Getting the inputs into the array.
+    scanf("%d %d", &bob_item_count, &sue_item_count);
+    int bob[bob_item_count];
+    int sue[sue_item_count];
+    int counter = 0;
+    while (counter < bob_item_count) {
+        scanf("%d", &bob[counter]);
+        counter++;
+    }
+    counter = 0;
+    while (counter < sue_item_count) {
+        scanf("%d", &sue[counter]);
+        counter++;
+    }
+
+    // Figuring out which of the two array is the smaller one.
+    if (bob_item_count < sue_item_count) {
+        smaller_array = bob;
+        larger_array = sue;
+        smaller_array_size = bob_item_count;
+        larger_array_size = sue_item_count;
+    } else {
+        smaller_array = sue;
+        larger_array = bob;
+        smaller_array_size = sue_item_count;
+        larger_array_size = bob_item_count;
+    }
+
+    // Summing up the items in the smaller_array.
+    int total_price = 0;
+    counter = 0;
+    while (counter < smaller_array_size) {
+        total_price += smaller_array[counter];
+        counter++;
+    }
+
+    /*
+        Getting the N most expensive items from the larger array
+    */
+    // method 1: lopping through the larger array `N` times, find the largest element, 
+    // add it to `total_price`, and replace that element with -1.
+    counter = 0;
+    while (counter < smaller_array_size) {
+        int curr_max = -1;
+        int max_index = -1;
+        int index = 0;
+        while (index < larger_array_size) {
+            if (larger_array[index] > curr_max) {
+                curr_max = larger_array[index];
+                max_index = index;
+            }
+            index++;
+        }
+        larger_array[max_index] = -1;
+        total_price += curr_max;
+        counter++;
+    }
+    printf("%d", total_price);
+    return 0;
+}
+```
