@@ -1,1 +1,1 @@
-pointer to pointer to pointer to pointer to c
+pointer to pointer to c

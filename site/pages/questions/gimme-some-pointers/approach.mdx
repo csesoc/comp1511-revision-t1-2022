@@ -1,0 +1,81 @@
+# Approach
+
+_Written by Hanyuan Li from CSESoc Competitions_
+
+In this question, we're asked to find the number of times a variable has been
+dereferenced, based on the `&`s and `*`s behind that variable. If we ever end
+up dereferencing a raw value, however, the program should output `not possible`.
+
+To solve this problem, we just need to iterate over the string, from right to left
+(since `&`s and `*`s are processed from right to left). We know the length of the
+string as one of our inputs, so all we have to do is set our while-loop counter to
+start from the last index of the string:
+
+```c
+int length; // Argument in solve()
+int index = length - 1; // Remember strings are 0-indexed, so we have to subtract
+                        // 1 to get the last character in a string with length `length`
+
+while (index > 0) {
+    // Do stuff here
+    index--;
+}
+```
+
+We also need to know how many references there are. Whenever we `&`, we reference
+our variable, and whenever we `*` we dereference it. So we can add some extra parts to
+our program:
+
+```c
+int length; // Argument in solve()
+int index = length - 1; // Remember strings are 0-indexed, so we have to subtract
+                        // 1 to get the last character in a string with length `length`
+
+int references = 0;
+
+while (index > 0) {
+    char current = input[index];
+
+    // Increment/decrement our reference count accordingly
+    if (current == '&') {
+        references++;
+    } else {
+        references--;
+    }
+
+    index--;
+}
+```
+
+Now we need to do one more check for when we try to dereference a raw value (i.e.
+do `*` on a variable that isn't referenced). We will need to print `not possible`
+when that happens, so we can have a check for that too:
+
+```c
+int length; // Argument in solve()
+int index = length - 1; // Remember strings are 0-indexed, so we have to subtract
+                        // 1 to get the last character in a string with length `length`
+
+int references = 0;
+
+while (index > 0) {
+    char current = input[index];
+
+    // Increment/decrement our reference count accordingly
+    if (current == '&') {
+        references++;
+    } else {
+        references--;
+    }
+
+    if (references < 0) {
+        printf("not possible\n");
+        return;
+    }
+
+    index--;
+}
+```
+
+Now we have the number of references to our variable. We can simply print `pointer to`
+(plus a space) that many times, followed by `c`.
